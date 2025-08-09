@@ -1,5 +1,5 @@
 ## 구현목표
-: 512 point FFT module
+: 512 points FFT module
 ![FFT](/images/FFT_diagram.png)
 -----------------------------------------------------
 1. fixed model 구현
