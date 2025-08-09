@@ -18,11 +18,6 @@ The workflow includes **MATLAB modeling**, **SystemVerilog RTL design**, **Synop
 
 ---
 
-## 📂 Directory Structure
-
-
----
-
 ## ⚙ Features
 - **Pipelined FFT Architecture** optimized for 500MHz operation  
 - **Headroom-Based Scaling** to prevent overflow while minimizing resource usage  
