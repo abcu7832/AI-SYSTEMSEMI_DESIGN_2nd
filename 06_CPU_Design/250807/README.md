@@ -3,7 +3,7 @@
 
 ### HOMEWORK
 ```
-FSM
+********************FSM******************
 start → Stop
 Stop → run (run_stop 버튼)
 run → Stop (run_stop 버튼)
