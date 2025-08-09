@@ -4,7 +4,7 @@
 3. 합성
 4. gatesim 측정
 ### 일정  
-- project: 250718 ~ 250805
+- 250718 ~ 250805
 
 ### 자료 내용
 * floating_model.md: MATLAB floatin_model 코드
