@@ -7,6 +7,8 @@
 - 250718 ~ 250805
 
 ### 자료 내용
+* cos_in_gen.md: 모델을 검증하기 위한 입력값(Cosine)
+* ran_in_gen_stu.md: 모델을 검증하기 위한 입력값(Random)
 * floating_model.md: MATLAB floatin_model 코드
 * floating_model.pdf: floating_model 분석자료
 * fixed_model.md: MATLAB fixed_model 코드
