@@ -24,7 +24,7 @@ The workflow includes **MATLAB modeling**, **SystemVerilog RTL design**, **Synop
 ---
 
 ## ⚙ Features
-- **Pipelined FFT Architecture** optimized for high-frequency operation  
+- **Pipelined FFT Architecture** optimized for 500MHz operation  
 - **Headroom-Based Scaling** to prevent overflow while minimizing resource usage  
 - **Configurable Data Widths** for different fixed-point precisions  
 - **MATLAB Reference Model** for algorithm-to-RTL verification  
@@ -32,13 +32,4 @@ The workflow includes **MATLAB modeling**, **SystemVerilog RTL design**, **Synop
 
 ---
 
-## 🚀 How to Run
-
-### 1. RTL Simulation (VCS + Verdi)
-```bash
-cd project/systemverilog
-vcs -full64 -sverilog *.sv tb_top.sv -debug_access+all
-./simv
-verdi -ssf wave.fsdb
-```
 > 💡 *본 프로젝트는 Modeling -> RTL → Verification → Synthesis → Gate Simulation & BitStream 순으로 진행됩니다.*
