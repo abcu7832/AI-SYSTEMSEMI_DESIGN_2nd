@@ -20,5 +20,3 @@
 | **후반기** | 2025.07.14 ~ 2025.08.05 |
 
 ---
-
-> 💡 *본 프로젝트는 SoC 설계, 검증, 합성 전 과정을 포함하며, RTL → Verification → Synthesis → Implementation 순으로 진행됩니다.*
