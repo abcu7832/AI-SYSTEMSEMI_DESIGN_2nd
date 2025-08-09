@@ -12,9 +12,7 @@ clear → Stop
 button 3개
 
 run_stop 버튼
-
 clear 버튼
-
 mode 버튼
 
 mode = 0 → up counting
