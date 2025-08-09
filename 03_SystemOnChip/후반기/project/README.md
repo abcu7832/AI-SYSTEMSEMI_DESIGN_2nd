@@ -3,7 +3,7 @@
 ---
 
 ## 🎯 구현 목표
-**512points FFT**
+
 1. **Fixed model** 구현  
 2. **RTL** 구현  
 3. **합성 (Synthesis)**  
