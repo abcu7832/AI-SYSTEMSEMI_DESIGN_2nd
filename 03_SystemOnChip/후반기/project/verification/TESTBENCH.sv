@@ -1,4 +1,3 @@
-```systemverilog
 `timescale 1ns / 1ps
 
 module tb_golden_top ();
@@ -105,5 +104,3 @@ module tb_golden_top ();
         $finish;
     end
 endmodule
-
-```
