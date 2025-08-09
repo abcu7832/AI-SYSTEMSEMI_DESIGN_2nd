@@ -1,4 +1,3 @@
-```matlab
 function [data_float, data_fixed] = cos_in_gen(fft_mode, num)
  N = num;
 
@@ -46,4 +45,3 @@ function [data_float, data_fixed] = cos_in_gen(fft_mode, num)
 	data_fixed(i) = data_fixed_re(i) + j*data_fixed_im(i);
  end
 end
-```
