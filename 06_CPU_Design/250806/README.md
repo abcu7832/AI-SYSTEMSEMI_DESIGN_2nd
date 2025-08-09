@@ -16,4 +16,3 @@ mode 버튼을 눌러서 전환 → up → down
 
 mode 버튼 1개로 동작, mode이 toggle.
 ```
-![images_mnist_모델](/images/250806.png)
