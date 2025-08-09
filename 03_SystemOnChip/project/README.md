@@ -1,4 +1,4 @@
-# FFT Hardware Implementation Project
+# FFT Project
 
 ## 📌 Overview
 This project implements a **Fast Fourier Transform (FFT)** hardware architecture using a pipelined structure and headroom-based scaling.  
