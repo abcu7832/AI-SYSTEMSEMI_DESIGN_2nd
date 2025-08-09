@@ -1,4 +1,4 @@
-module up_down_counter (
+module counter (
     input  logic                    clk,
     input  logic                    reset,
     input  logic                    tick,
