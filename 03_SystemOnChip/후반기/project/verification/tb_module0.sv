@@ -55,9 +55,9 @@ module tb_module0;
     integer i;
 
     // === 파일 경로 ===
-    string  file_i_path = "txt/cos_i_dat.txt";
-    string  file_q_path = "txt/cos_q_dat.txt";
-    string  out_file = "../../fft_output.txt";  // 프로젝트 루트에 저장
+    string  file_i_path = "cos_i_dat.txt";
+    string  file_q_path = "cos_q_dat.txt";
+    string  out_file = "fft_output.txt";  // 프로젝트 루트에 저장
 
 
 
