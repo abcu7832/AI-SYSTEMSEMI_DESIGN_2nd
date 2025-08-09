@@ -1,4 +1,3 @@
-```matlab
 function [fft_out, module2_out] = fft_fixed_stu(fft_mode, fft_in)
  
  din = fft_in; % <3.6>
@@ -331,4 +330,4 @@ function [fft_out, module2_out] = fft_fixed_stu(fft_mode, fft_in)
 	kk = bitget(jj-1,9)*1 + bitget(jj-1,8)*2 + bitget(jj-1,7)*4 + bitget(jj-1,6)*8 + bitget(jj-1,5)*16 + bitget(jj-1,4)*32 + bitget(jj-1,3)*64 + bitget(jj-1,2)*128 + bitget(jj-1,1)*256;
 	dout(kk+1) = bfly22(jj); % With reorder
  end
-```
+
