@@ -1,4 +1,3 @@
-```matlab
 function [fft_out, module2_out] = fft_float(fft_mode, fft_in)
 
  shift = 0;
@@ -162,4 +161,3 @@ function [fft_out, module2_out] = fft_float(fft_mode, fft_in)
 	dout(kk+1) = bfly22(jj); % With reorder
  end
 end
-```
