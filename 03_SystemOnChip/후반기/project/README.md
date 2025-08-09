@@ -22,7 +22,7 @@
 
 - **matlab**: MATLAB 코드 디렉토리
 - **systemverilog**: systemverilog 코드 디렉토리
-- **FFT결과발표.pdf**: 프로젝트 결과 발표 자료  
+- **FFT결과발표자료.pdf**: 프로젝트 결과 발표 자료  
 - **FFT분석자료.pdf**: FFT 분석 자료
 
 ---
