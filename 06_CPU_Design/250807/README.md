@@ -9,7 +9,7 @@ Stop → run (run_stop 버튼)
 run → Stop (run_stop 버튼)
 Stop → clear (clear 버튼)
 clear → Stop
-
+*****************************************
 button 3개
 
 run_stop 버튼
