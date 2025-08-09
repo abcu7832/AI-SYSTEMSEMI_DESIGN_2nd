@@ -1,4 +1,3 @@
-```matlab
 function [data_float, data_fixed] = ran_in_gen_stu(fft_mode, num)
  N = num;
  M1 = 259200;
@@ -39,4 +38,3 @@ function [data_float, data_fixed] = ran_in_gen_stu(fft_mode, num)
 	data_fixed(i) = data_fixed_re(i) + j*data_fixed_im(i);
  end
 end
-```
