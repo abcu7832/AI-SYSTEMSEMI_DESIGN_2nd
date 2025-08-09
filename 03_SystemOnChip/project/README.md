@@ -40,4 +40,5 @@ cd project/systemverilog
 vcs -full64 -sverilog *.sv tb_top.sv -debug_access+all
 ./simv
 verdi -ssf wave.fsdb
+```
 > 💡 *본 프로젝트는 Modeling -> RTL → Verification → Synthesis → Gate Simulation & BitStream 순으로 진행됩니다.*
