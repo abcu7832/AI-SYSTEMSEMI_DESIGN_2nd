@@ -10,3 +10,4 @@
 </p>
 
 - 과제1: RRC Filter 설계
+- 과제2: shift register 설계
