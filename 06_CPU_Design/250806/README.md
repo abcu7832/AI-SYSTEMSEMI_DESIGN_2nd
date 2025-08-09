@@ -1,6 +1,6 @@
 ### ***Review duration***
 * updowncounter(0~9999)
-### Spec
+### HOMEWORK
 ```
 Up/down Counter
 
