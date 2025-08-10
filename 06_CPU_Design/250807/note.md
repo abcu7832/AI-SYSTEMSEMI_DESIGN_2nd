@@ -70,6 +70,12 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 - **Gate(Enable)** 신호를 추가하여, Gate가 1일 때만 입력 D가 출력 Q로 전달
 - Gate가 0이면 현재 Q 상태를 유지
 - level sensitive 동작: Gate=1 상태 동안 D 값이 변하면 Q도 변함
+<p align="center">
+  <img src="/images/250806_7.png" alt="Inverter Latch Diagram" width="400">
+</p>
+
+
+
 * 진리표
 
 
