@@ -27,7 +27,7 @@
 <p align="center">
   <img src="/images/250806_5.png" alt="Inverter Latch Diagram" width="200">
 </p>
----------------------
+
 ## 1. SR Latch
 * NOR 게이트 기반 SR Latch
 
