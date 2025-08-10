@@ -57,9 +57,11 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 ```
 ---
 ## 3. D Latch
-- **D (Data) Latch**는 SR Latch의 변형으로, 입력 D 값을 그대로 출력 Q에 저장
+```
+- D (Data) Latch는 SR Latch의 변형으로, 입력 D 값을 그대로 출력 Q에 저장
 - D 입력이 1이면 Q=1, D 입력이 0이면 Q=0
-- SR Latch의 **R=~D, S=D**로 구성하여 `R=1, S=1`의 금지 상태를 방지
+- SR Latch의 R=~D, S=D로 구성하여 `R=1, S=1`의 금지 상태를 방지
+```
 <p align="center">
   <img src="/images/250806_6.png" alt="Inverter Latch Diagram" width="400">
 </p>
@@ -67,9 +69,11 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 
 
 ### 3-1. Gated D Latch
-- **Gate(Enable)** 신호를 추가하여, Gate가 1일 때만 입력 D가 출력 Q로 전달
-- Gate가 0이면 현재 Q 상태를 유지
-- level sensitive 동작: Gate=1 상태 동안 D 값이 변하면 Q도 변함
+```
+Enable(Gate) 신호를 추가하여, En가 1일 때만 입력 D가 출력 Q로 전달
+En이 0이면 현재 Q 상태를 유지
+level sensitive 동작: En=1 상태 동안 D 값이 변하면 Q도 변함
+```
 <p align="center">
   <img src="/images/250806_7.png" alt="Inverter Latch Diagram" width="400">
 </p>
