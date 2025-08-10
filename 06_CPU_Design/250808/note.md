@@ -2,7 +2,7 @@
 
 ## UART vs I2C vs SPI 비교
 <p align="center">
-  <img src="/images/250808_1.png" alt="통신" width="200">
+  <img src="/images/250808_1.png" alt="통신" width="1000">
 </p>
 
 
