@@ -1,6 +1,7 @@
 ### 250806 class note
 FPGA board: Basys 3 (교육용 보드) based on Artix-7 FPGA, Xilinx(AMD)
-## Basys 3 보드 주요 특징
+
+## Basys 3 주요 특징
 
 ### 1. FPGA 칩
 - **Xilinx Artix-7 XC7A35T-1CPG236C**
