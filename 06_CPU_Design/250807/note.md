@@ -25,7 +25,7 @@
 - 출력이 다시 입력으로 연결되어 상태를 유지
 
 ![Inverter Latch Diagram](/images/250806_5.png)
-
+---
 ## 1. SR Latch
 * NOR 게이트 기반 SR Latch
 
