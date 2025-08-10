@@ -12,6 +12,6 @@
 | **동기/비동기** | 비동기       | 동기         | 동기         |
 | **관계 수**   | 1:1          | 1:N          | 1:N          |
 | **선 수**     | 2 (TX, RX)  | 2 (SDA, SCL) | 4 (SCK, MISO, MOSI, SS) |
-| **이중통신**  | 전이중       | 반이중       | 전이중       |
-| **전송 거리** | 김           | UART 대비 짧음 | UART 대비 짧음 |
-| **전송 속도** | 느림         | SPI 대비 느림 | 빠름         |
+| **이중통신**  | full duplex       | half duplex       | full duplex       |
+| **전송 거리** | long           | shorter than UART | shorter than UART |
+| **전송 속도** | slow         | slower than SPI  | fast        |
