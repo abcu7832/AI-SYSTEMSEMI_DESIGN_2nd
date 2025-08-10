@@ -120,6 +120,11 @@ Master가 입력 D를 받아들이는 동안 glitch가 일어나더라도, Slave
 클럭이 반전되어 Slave가 열릴 때는 이미 Master 출력이 안정된 값이므로 glitch가 사라진 상태의 값만 전달됨.
 그러므로 클럭의 특정 에지에서만 안정된 데이터가 전달되기 때문에 순간적인 잘못된 펄스(glitch)가 Q로 반영되지 않음.
 ```
+```
+* schematic에서 glitch가 나타나는 이유를 주석하는 목적
+-실제 논리적으로는 문제 없지만, 아날로그 관점에서 순간 펄스가 존재할 수 있다는 걸 알려주는 것.
+-특히 FPGA/ASIC 설계에서 클럭, reset, enable, latch 제어 신호에 glitch가 발생하면 큰 문제이므로, schematic 단계에서 미리 위험 경로를 표시.
+```
 
 * meta stability 방지
 ```
