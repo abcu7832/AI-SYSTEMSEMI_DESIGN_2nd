@@ -91,10 +91,12 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 - 동기식 회로에서 데이터 저장, 레지스터 구성 등에 사용
 ```
 ## 4. Master-Slave D F/F
+```
 - **Master Latch**: 클럭 신호가 **High**일 때 입력 `D` 값을 받아 저장.
 - **Slave Latch**: 클럭 신호가 **Low**일 때 Master의 출력을 받아 최종 출력 `Q`로 전달.
 - 결과적으로, 입력 데이터는 클럭의 **상승 에지**에서만 출력에 반영.
 - Master-Slave 조합은 일반적인 **엣지 트리거 D 플립플롭**과 동일하게 동작.(synchronizer)
+```
 <p align="center">
   <img src="/images/250806_8.png" alt="D F/F from D latch x2" width="400">
 </p>
@@ -102,6 +104,8 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 
 
 * 특징
+```
 - 클럭 상승 에지에서만 데이터가 출력 Q로 반영됨.
 - 글리치(glitch) 방지에 유리. cf) glitch: 의도하지 않은 짧은 신호 변화
 - 레벨 민감형 래치를 조합하여 엣지 트리거 동작을 구현.
+```
