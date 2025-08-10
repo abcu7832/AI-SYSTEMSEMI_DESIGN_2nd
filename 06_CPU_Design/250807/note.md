@@ -63,6 +63,9 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 <p align="center">
   <img src="/images/250806_6.png" alt="Inverter Latch Diagram" width="400">
 </p>
+
+
+
 ### 2-1. Gated D Latch
 - **Gate(Enable)** 신호를 추가하여, Gate가 1일 때만 입력 D가 출력 Q로 전달
 - Gate가 0이면 현재 Q 상태를 유지
