@@ -32,3 +32,9 @@ FPGA board: Basys 3 (교육용 보드) based on Artix-7 FPGA, Xilinx(AMD)
 | 오디오 잭        | 1개   | PWM 오디오 출력 가능 |
 
 cf) FND = 7-segment
+
+
+## FND Schematic
+![Basys 3 FND Schematic](/images/250806_1.png)
+![Basys 3 FND Schematic](/images/250806_2.png)
+![Basys 3 FND Schematic](/images/250806_2.png)
