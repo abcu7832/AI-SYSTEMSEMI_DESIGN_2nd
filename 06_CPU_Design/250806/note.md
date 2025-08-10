@@ -36,8 +36,23 @@ cf) FND = 7-segment
 
 ## FND Schematic
 ![Basys 3 FND Schematic](/images/250806_1.png)
+
+
+
 -> 하드웨어 특성상 한꺼번에 각 자리의 값을 출력할 수 없음.
+
+
+
 ![Basys 3 FND Schematic](/images/250806_2.png)
+
+
+
 -> Cathode 방식으로 1을 주면 OFF, 0을 주면 ON cf) Cathode <-> Anode
+
+
+
 ![Basys 3 FND Schematic](/images/250806_3.png)
+
+
+
 -> 위의 하드웨어 특성을 극복하기 위해 어떤 자리를 출력시킬것인지 제어하기 위해 필요한 타이밍 다이어그램
