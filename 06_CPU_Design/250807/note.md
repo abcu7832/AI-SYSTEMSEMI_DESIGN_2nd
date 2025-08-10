@@ -60,6 +60,9 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 - **D (Data) Latch**는 SR Latch의 변형으로, 입력 D 값을 그대로 출력 Q에 저장
 - D 입력이 1이면 Q=1, D 입력이 0이면 Q=0
 - SR Latch의 **R=~D, S=D**로 구성하여 `R=1, S=1`의 금지 상태를 방지
+<p align="center">
+  <img src="/images/250806_5.png" alt="Inverter Latch Diagram" width="400">
+</p>
 ### 2-1. Gated D Latch
 - **Gate(Enable)** 신호를 추가하여, Gate가 1일 때만 입력 D가 출력 Q로 전달
 - Gate가 0이면 현재 Q 상태를 유지
