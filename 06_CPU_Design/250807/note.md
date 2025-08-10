@@ -31,6 +31,8 @@
 ## 1. SR Latch
 * NOR 게이트 기반 SR Latch
 
+
+
 <p align="center">
   <img src="/images/250806_4.png" alt="SR Latch Diagram" width="400">
 </p>
