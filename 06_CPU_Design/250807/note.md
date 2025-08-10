@@ -136,7 +136,7 @@ Master가 입력 D를 받아들이는 동안 glitch가 일어나더라도, Slave
 * meta stability
 ```
 meta stability 정의: 0과 1 사이의 불안정한 상태 -> 출력이 예측 불가능하게 튀거나, 정상보다 매우 늦게 안정되는 문제를 일으킴.
-meta stability 방지
+* meta stability 방지
 Setup/Hold time 위반하지 않도록 타이밍 설계
 비동기 신호는 동기화 회로 사용(register buffer)
 클럭 속도 여유 확보
