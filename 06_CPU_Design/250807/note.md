@@ -34,7 +34,7 @@
 
 ---
 
-![SR Latch Diagram](sr_latch.png)
+![SR Latch Diagram](/images/250806_4.png)
 
 ---
 
