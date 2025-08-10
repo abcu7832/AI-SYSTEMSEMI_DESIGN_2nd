@@ -96,10 +96,10 @@ level sensitive 동작: En=1 상태 동안 D 값이 변하면 Q도 변함
 ```
 ## 4. Master-Slave D F/F
 ```
-- **Master Latch**: 클럭 신호가 **High**일 때 입력 `D` 값을 받아 저장.
-- **Slave Latch**: 클럭 신호가 **Low**일 때 Master의 출력을 받아 최종 출력 `Q`로 전달.
-- 결과적으로, 입력 데이터는 클럭의 **상승 에지**에서만 출력에 반영.
-- Master-Slave 조합은 일반적인 **엣지 트리거 D 플립플롭**과 동일하게 동작.(synchronizer)
+- Master Latch: 클럭 신호가 High일 때 입력 `D` 값을 받아 저장.
+- Slave Latch: 클럭 신호가 Low일 때 Master의 출력을 받아 최종 출력 `Q`로 전달.
+- 결과적으로, 입력 데이터는 클럭의 상승 에지에서만 출력에 반영.
+- Master-Slave 조합은 일반적인 엣지 트리거 D 플립플롭과 동일하게 동작.(synchronizer)
 ```
 <p align="center">
   <img src="/images/250806_8.png" alt="D F/F from D latch x2" width="400">
