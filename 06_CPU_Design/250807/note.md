@@ -24,12 +24,16 @@
 * 기본 인버터 피드백 형태
 - 출력이 다시 입력으로 연결되어 상태를 유지
 
-![Inverter Latch Diagram](/images/250806_5.png)
+<p align="center">
+  <img src="/images/250806_5.png" alt="Inverter Latch Diagram" width="400">
+</p>
 ---
 ## 1. SR Latch
 * NOR 게이트 기반 SR Latch
 
-![SR Latch Diagram](/images/250806_4.png)
+<p align="center">
+  <img src="/images/250806_4.png" alt="SR Latch Diagram" width="400">
+</p>
 ```
 두 개의 NOR 게이트를 교차 연결하여 구성
 ```
