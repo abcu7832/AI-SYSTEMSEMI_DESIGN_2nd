@@ -116,8 +116,9 @@ level sensitive 동작: En=1 상태 동안 D 값이 변하면 Q도 변함
 
 * glitch 방지 원리
 ```
+""clk > setup time + propagation delay + hold time""
 Hazard: 회로에서 입력이 변할 때 출력이 순간적으로 잘못된 값으로 튀는 현상
-원인: 게이트 전파 지연(propagation delay)와 여러 경로의 지연 불일치
+원인: 게이트 전파 지연(propagation delay)과 여러 경로의 지연 불일치
 ```
 ```
 Master가 입력 D를 받아들이는 동안 glitch가 일어나더라도, Slave 래치는 그 시점에 닫혀있기 때문에 glitch가 Q로 전달되지 않음.
