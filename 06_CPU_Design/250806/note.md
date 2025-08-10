@@ -37,4 +37,4 @@ cf) FND = 7-segment
 ## FND Schematic
 ![Basys 3 FND Schematic](/images/250806_1.png)
 ![Basys 3 FND Schematic](/images/250806_2.png)
-![Basys 3 FND Schematic](/images/250806_2.png)
+![Basys 3 FND Schematic](/images/250806_3.png)
