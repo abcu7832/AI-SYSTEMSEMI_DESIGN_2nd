@@ -141,3 +141,8 @@ meta stability 정의: 0과 1 사이의 불안정한 상태 -> 출력이 예측 
 - 비동기 신호는 동기화 회로 사용(register buffer)
 - 클럭 속도 여유 확보
 ```
+---
+# Shift Register
+<p align="center">
+  <img src="/images/250806_9.png" alt="Shift Register" width="400">
+</p>
