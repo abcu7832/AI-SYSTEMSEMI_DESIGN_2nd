@@ -116,6 +116,10 @@ level sensitive 동작: En=1 상태 동안 D 값이 변하면 Q도 변함
 
 * glitch 방지 원리
 ```
+Hazard: 회로에서 입력이 변할 때 출력이 순간적으로 잘못된 값으로 튀는 현상
+원인: 게이트 전파 지연(propagation delay)와 여러 경로의 지연 불일치
+```
+```
 Master가 입력 D를 받아들이는 동안 glitch가 일어나더라도, Slave 래치는 그 시점에 닫혀있기 때문에 glitch가 Q로 전달되지 않음.
 클럭이 반전되어 Slave가 열릴 때는 이미 Master 출력이 안정된 값이므로 glitch가 사라진 상태의 값만 전달됨.
 그러므로 클럭의 특정 에지에서만 안정된 데이터가 전달되기 때문에 순간적인 잘못된 펄스(glitch)가 Q로 반영되지 않음.
@@ -123,6 +127,7 @@ Master가 입력 D를 받아들이는 동안 glitch가 일어나더라도, Slave
 ```
 * schematic에서 glitch가 나타나는 이유를 주석하는 목적
 -실제 논리적으로는 문제 없지만, 아날로그 관점에서 순간 펄스가 존재할 수 있다는 걸 알려주는 것.
+-MUX, XOR, OR 결합부 같은 여러 경로가 만나는 곳에서 자주 발생
 -특히 FPGA/ASIC 설계에서 클럭, reset, enable, latch 제어 신호에 glitch가 발생하면 큰 문제이므로, schematic 단계에서 미리 위험 경로를 표시.
 ```
 
