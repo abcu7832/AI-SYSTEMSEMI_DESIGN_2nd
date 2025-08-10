@@ -25,7 +25,7 @@
 - 출력이 다시 입력으로 연결되어 상태를 유지
 
 <p align="center">
-  <img src="/images/250806_5.png" alt="Inverter Latch Diagram" width="400">
+  <img src="/images/250806_5.png" alt="Inverter Latch Diagram" width="200">
 </p>
 ---
 ## 1. SR Latch
