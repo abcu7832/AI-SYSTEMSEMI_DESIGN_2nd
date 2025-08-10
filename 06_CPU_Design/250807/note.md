@@ -18,7 +18,7 @@
 - **Latch**와 **Flip-Flop**은 출력 상태를 유지할 수 있는 **메모리 기능**을 가짐
 - 기본 구조: 출력의 피드백을 이용하여 이전 상태를 저장
 
-## 초기 Latch
+## 1. 초기 Latch
 * 기본 인버터 피드백 형태
 - 출력이 다시 입력으로 연결되어 상태를 유지
 
@@ -26,7 +26,7 @@
   <img src="/images/250806_5.png" alt="Inverter Latch Diagram" width="200">
 </p>
 
-## 1. SR Latch
+## 2. SR Latch
 * NOR 게이트 기반 SR Latch
 
 
@@ -56,7 +56,7 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 순차회로 설계의 기본 요소로, 플립플롭의 기초가 됨
 ```
 ---
-## 2. D Latch
+## 3. D Latch
 - **D (Data) Latch**는 SR Latch의 변형으로, 입력 D 값을 그대로 출력 Q에 저장
 - D 입력이 1이면 Q=1, D 입력이 0이면 Q=0
 - SR Latch의 **R=~D, S=D**로 구성하여 `R=1, S=1`의 금지 상태를 방지
@@ -66,7 +66,7 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 
 
 
-### 2-1. Gated D Latch
+### 3-1. Gated D Latch
 - **Gate(Enable)** 신호를 추가하여, Gate가 1일 때만 입력 D가 출력 Q로 전달
 - Gate가 0이면 현재 Q 상태를 유지
 - level sensitive 동작: Gate=1 상태 동안 D 값이 변하면 Q도 변함
@@ -90,3 +90,11 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 - Gated D Latch: Enable 신호로 데이터 입력 시점을 제어
 - 동기식 회로에서 데이터 저장, 레지스터 구성 등에 사용
 ```
+## 4. Master-Slave D F/F
+- **Master 래치**: 클럭 신호가 **High**일 때 입력 `D` 값을 받아 저장.
+- **Slave 래치**: 클럭 신호가 **Low**일 때 Master의 출력을 받아 최종 출력 `Q`로 전달.
+- 결과적으로, 입력 데이터는 클럭의 **상승 에지**에서만 출력에 반영.
+- Master-Slave 조합은 일반적인 **엣지 트리거 D 플립플롭**과 동일하게 동작.
+<p align="center">
+  <img src="/images/250806_8.png" alt="D F/F from D latch x2" width="400">
+</p>
