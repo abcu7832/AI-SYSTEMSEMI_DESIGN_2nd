@@ -30,4 +30,5 @@ FPGA board: Basys 3 (교육용 보드) based on Artix-7 FPGA, Xilinx(AMD)
 | USB-UART         | 1개   | PC와 시리얼 통신 |
 | Pmod 포트        | 4개   | 추가 모듈 연결 가능(Pmod 센서, 모터, 디스플레이 등) |
 | 오디오 잭        | 1개   | PWM 오디오 출력 가능 |
+
 cf) FND = 7-segment
