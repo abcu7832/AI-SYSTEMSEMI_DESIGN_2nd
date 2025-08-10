@@ -98,3 +98,7 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 <p align="center">
   <img src="/images/250806_8.png" alt="D F/F from D latch x2" width="400">
 </p>
+* 특징
+- 클럭 상승 에지에서만 데이터가 출력 Q로 반영됨.
+- 글리치(glitch) 방지에 유리. cf) glitch: 의도하지 않은 짧은 신호 변화
+- 레벨 민감형 래치를 조합하여 엣지 트리거 동작을 구현.
