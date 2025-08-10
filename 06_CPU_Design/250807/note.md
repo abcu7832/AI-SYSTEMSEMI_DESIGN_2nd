@@ -144,5 +144,5 @@ meta stability 정의: 0과 1 사이의 불안정한 상태 -> 출력이 예측 
 ---
 # Shift Register
 <p align="center">
-  <img src="/images/250806_9.png" alt="Shift Register" width="400">
+  <img src="/images/250806_9.png" alt="Shift Register" width="700">
 </p>
