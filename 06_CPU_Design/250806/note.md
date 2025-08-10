@@ -56,3 +56,27 @@ cf) FND = 7-segment
 
 
 -> 위의 하드웨어 특성을 극복하기 위해 어떤 자리를 출력시킬것인지 제어하기 위해 필요한 타이밍 다이어그램
+## Basys 3 FND control module
+* clock divider
+```
+1ms마다 FND 출력 자릿수 결정
+system clock = 100Mhz
+1ms = 1kHz ===> 100_000 counter 필요
+```
+* counter_2bit
+```
+4 count
+```
+* digitSplitter
+```
+1의 자리, 10의 자리, 100의 자리, 1000의 자리
+FND에서 출력할 각 자릿수를 결정
+```
+* 4x1 MUX
+```
+counter_2bit의 값을 select신호로 하여 FND에 출력할 자리를 결정
+```
+* BCD to FND decoder
+```
+FND의 Schematic에 따른 0부터 9까지의 형식
+```
