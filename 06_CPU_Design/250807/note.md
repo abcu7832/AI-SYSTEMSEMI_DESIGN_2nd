@@ -122,22 +122,22 @@ Hazard: 회로에서 입력이 변할 때 출력이 순간적으로 잘못된 �
 ```
 ```
 * glitch 방지 원리
-Master가 입력 D를 받아들이는 동안 glitch가 일어나더라도, Slave 래치는 그 시점에 닫혀있기 때문에 glitch가 Q로 전달되지 않음.
-클럭이 반전되어 Slave가 열릴 때는 이미 Master 출력이 안정된 값이므로 glitch가 사라진 상태의 값만 전달됨.
-그러므로 클럭의 특정 에지에서만 안정된 데이터가 전달되기 때문에 순간적인 잘못된 펄스(glitch)가 Q로 반영되지 않음.
+- Master가 입력 D를 받아들이는 동안 glitch가 일어나더라도, Slave 래치는 그 시점에 닫혀있기 때문에 glitch가 Q로 전달되지 않음.
+- 클럭이 반전되어 Slave가 열릴 때는 이미 Master 출력이 안정된 값이므로 glitch가 사라진 상태의 값만 전달됨.
+- 그러므로 클럭의 특정 에지에서만 안정된 데이터가 전달되기 때문에 순간적인 잘못된 펄스(glitch)가 Q로 반영되지 않음.
 ```
 ```
 * schematic에서 glitch가 나타나는 이유를 주석하는 목적
--실제 논리적으로는 문제 없지만, 아날로그 관점에서 순간 펄스가 존재할 수 있다는 걸 알려주는 것.
--MUX, XOR, OR 결합부 같은 여러 경로가 만나는 곳에서 자주 발생
--특히 FPGA/ASIC 설계에서 클럭, reset, enable, latch 제어 신호에 glitch가 발생하면 큰 문제이므로, schematic 단계에서 미리 위험 경로를 표시.
+- 실제 논리적으로는 문제 없지만, 아날로그 관점에서 순간 펄스가 존재할 수 있다는 걸 알려주는 것.
+- MUX, XOR, OR 결합부 같은 여러 경로가 만나는 곳에서 자주 발생
+- 특히 FPGA/ASIC 설계에서 클럭, reset, enable, latch 제어 신호에 glitch가 발생하면 큰 문제이므로, schematic 단계에서 미리 위험 경로를 표시.
 ```
 
 * meta stability
 ```
 meta stability 정의: 0과 1 사이의 불안정한 상태 -> 출력이 예측 불가능하게 튀거나, 정상보다 매우 늦게 안정되는 문제를 일으킴.
 * meta stability 방지
-Setup/Hold time 위반하지 않도록 타이밍 설계
-비동기 신호는 동기화 회로 사용(register buffer)
-클럭 속도 여유 확보
+- Setup/Hold time 위반하지 않도록 타이밍 설계
+- 비동기 신호는 동기화 회로 사용(register buffer)
+- 클럭 속도 여유 확보
 ```
