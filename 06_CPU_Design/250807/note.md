@@ -91,8 +91,8 @@ SR Latch는 입력 R, S에 따라 Q 출력이 결정되고 상태를 유지
 - 동기식 회로에서 데이터 저장, 레지스터 구성 등에 사용
 ```
 ## 4. Master-Slave D F/F
-- **Master 래치**: 클럭 신호가 **High**일 때 입력 `D` 값을 받아 저장.
-- **Slave 래치**: 클럭 신호가 **Low**일 때 Master의 출력을 받아 최종 출력 `Q`로 전달.
+- **Master Latch**: 클럭 신호가 **High**일 때 입력 `D` 값을 받아 저장.
+- **Slave Latch**: 클럭 신호가 **Low**일 때 Master의 출력을 받아 최종 출력 `Q`로 전달.
 - 결과적으로, 입력 데이터는 클럭의 **상승 에지**에서만 출력에 반영.
 - Master-Slave 조합은 일반적인 **엣지 트리거 D 플립플롭**과 동일하게 동작.(synchronizer)
 <p align="center">
