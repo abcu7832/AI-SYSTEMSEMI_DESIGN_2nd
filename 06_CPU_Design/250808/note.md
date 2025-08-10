@@ -32,3 +32,17 @@
 ```
 baud tick이 16번 들어오는 동안 중간시점에서 data를 read
 ```
+* RTL 구현
+```
+baudrate 생성 방법:
+count: 0 ~ System_Frequency/Baudrate/sampling - 1
+
+receiver: rx
+transmitter: tx
+- rx
+input: rx(1bit value), baud_tick
+output: done, rx_data(8bit value)
+- tx
+input: start, tx(8bit value), baud_tick
+output: done, busy, tx(1bit value)
+```
