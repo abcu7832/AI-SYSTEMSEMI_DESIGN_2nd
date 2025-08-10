@@ -28,6 +28,9 @@
 
 ## 1. SR Latch 구조
 * NOR 게이트 기반 SR Latch
+
+
+
 ![SR Latch Diagram](/images/250806_4.png)
 ```
 두 개의 NOR 게이트를 교차 연결하여 구성
