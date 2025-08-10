@@ -26,4 +26,5 @@
 ```
 UART: clk이 연결되어있지 않는 비동기 통신 방식
 Frame단위: 1byte(START state부터 STOP state까지)
+clk대신 내부 시간으로 신호를 처리(baudrate)
 ```
