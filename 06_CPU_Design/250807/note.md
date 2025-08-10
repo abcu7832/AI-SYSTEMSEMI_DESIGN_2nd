@@ -34,7 +34,7 @@
 
 
 <p align="center">
-  <img src="/images/250806_4.png" alt="SR Latch Diagram" width="400">
+  <img src="/images/250806_6.png" alt="SR Latch Diagram" width="400">
 </p>
 ```
 두 개의 NOR 게이트를 교차 연결하여 구성
