@@ -28,3 +28,7 @@
 - 대신 내부 시간으로 신호를 처리(baudrate)
 - Frame단위: 1byte(START state부터 STOP state까지)
 ```
+* error를 줄이기 위한 방법: sampling
+```
+baud tick이 16번 들어오는 동안 중간시점에서 data를 read
+```
