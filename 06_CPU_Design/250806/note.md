@@ -65,7 +65,7 @@ system clock = 100Mhz
 ```
 * counter_2bit
 ```
-4 count
+0~3 count
 ```
 * digitSplitter
 ```
