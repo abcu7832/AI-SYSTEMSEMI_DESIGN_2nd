@@ -23,10 +23,6 @@ ex) 0 + 1(0+1) + 2(1+1) + 3(2+1) + ... + 10(9+1) = 55
 ---
 
 ## 제출물
-- C언어 코드
-- Data Path 설계도
-- ASM Chart 및 Control Unit 설계도
-- Top Level 설계 코드
+- Systemverilog 코드
 - 시뮬레이션 결과
-- Add 연산 출력 화면
-- 동작 영상
+- 동작 영상(FND 출력)
