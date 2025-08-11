@@ -2,7 +2,7 @@
 
 ## HW Design
 <p align="center">
-  <img src="/images/250811_1.png" alt="UART" width="1000">
+  <img src="/images/250811_1 .png" alt="UART" width="1000">
 </p>
 
 ## ASM Chart
