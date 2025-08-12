@@ -1,4 +1,4 @@
-# RISC-V
+# RISC-V CPU를 향해서
 * Register => RegisterFile
 
 ## 🔹 주요 이점
