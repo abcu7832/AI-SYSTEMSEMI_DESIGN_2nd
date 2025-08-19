@@ -1,1 +1,1 @@
-![CPUDesign](/images/RISC_V_INSTRUCTIONSET.png)
+![CPUDesign](/images/250819_다이어그램_서윤철.png)
