@@ -55,3 +55,4 @@ sltu x7, x5, x6     # x7 = (x5 < x6) ? 1 : 0 (unsigned)
 xor  x7, x5, x6
 or   x7, x5, x6
 and  x7, x5, x6
+```
