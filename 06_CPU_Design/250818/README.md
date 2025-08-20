@@ -15,7 +15,7 @@
 | `LHU` | 101 | `rd = zeroext( M16[addr] )` | 16비트 로드, 0 확장 |
 
 ### 어셈블리 예시
-```asm
+```riscv
 lb   x7, 0(x5)     # x7 = signext( M8[x5 + 0] )
 lbu  x7, 8(x5)     # x7 = zeroext( M8[x5 + 8] )
 lh   x7, 4(x5)     # x7 = signext( M16[x5 + 4] )
