@@ -44,15 +44,15 @@
 ---
 
 ## 📌 어셈블리 예시
-```riscv
-add  x7, x5, x6     # x7 = x5 + x6
-sub  x7, x5, x6     # x7 = x5 - x6
-sll  x7, x5, x6     # x7 = x5 << (x6[4:0])
-srl  x7, x5, x6     # x7 = x5 >> (x6[4:0])      ; 논리 시프트
-sra  x7, x5, x6     # x7 = x5 >>> (x6[4:0])     ; 산술 시프트
-slt  x7, x5, x6     # x7 = (x5 < x6) ? 1 : 0 (signed)
-sltu x7, x5, x6     # x7 = (x5 < x6) ? 1 : 0 (unsigned)
-xor  x7, x5, x6
-or   x7, x5, x6
-and  x7, x5, x6
+```asm
+ADD  x7, x5, x6     # x7 = x5 + x6
+SUB  x7, x5, x6     # x7 = x5 - x6
+SLL  x7, x5, x6     # x7 = x5 << (x6[4:0])
+SRL  x7, x5, x6     # x7 = x5 >> (x6[4:0])      ; 논리 시프트
+SRA  x7, x5, x6     # x7 = x5 >>> (x6[4:0])     ; 산술 시프트
+SLT  x7, x5, x6     # x7 = (x5 < x6) ? 1 : 0 (signed)
+SLTU x7, x5, x6     # x7 = (x5 < x6) ? 1 : 0 (unsigned)
+XOR  x7, x5, x6
+OR   x7, x5, x6
+AND  x7, x5, x6
 ```
