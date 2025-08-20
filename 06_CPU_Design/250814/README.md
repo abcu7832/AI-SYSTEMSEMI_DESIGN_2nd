@@ -1,6 +1,6 @@
 ## **RISC-V INSTRUCTION SET 구현**
 ![RISC_V_INSTRUCTIONSET](/images/RISC_V_INSTRUCTIONSET.png)
-### RV32I R-TYPE Instruction Set
+### RV32I ***R-TYPE*** Instruction Set
 ## 📌 형식 (32비트 인코딩)
 - **opcode (R-type)**: `0110011`
 - 시프트 계열에서 시프트 양은 `rs2[4:0]` 사용
