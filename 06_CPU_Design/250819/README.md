@@ -28,9 +28,9 @@ bgeu x5, x6, label
 ---
 
 ## ***format***
-- **U-type**: `[31:12] imm[31:12] | [11:7] rd | [6:0] opcode`
-- **J-type (JAL)**: `[31] imm[20] | [30:21] imm[10:1] | [20] imm[11] | [19:12] imm[19:12] | [11:7] rd | [6:0] opcode`
-- **JALR (I-type 변형)**: `[31:20] imm[11:0] | [19:15] rs1 | [14:12] funct3=000 | [11:7] rd | [6:0] opcode=1100111`
+|**U-type** | [31:12] imm[31:12] | [11:7] rd | [6:0] opcode 
+|**J-type(JAL)**|[31] imm[20] | [30:21] imm[10:1] | [20] imm[11] | [19:12] imm[19:12] | [11:7] rd | [6:0] opcode
+|**JALR**| [31:20] imm[11:0] | [19:15] rs1 | [14:12] funct3=000 | [11:7] rd | [6:0] opcode=1100111
 
 ## 📦 U-type (Upper Immediate)
 - `LUI rd, imm` → `rd = imm << 12`  
