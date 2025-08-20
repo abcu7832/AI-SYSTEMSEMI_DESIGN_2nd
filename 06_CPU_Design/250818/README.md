@@ -1,6 +1,6 @@
 ## **RISC-V INSTRUCTION SET 구현**
 ![RISC_V_INSTRUCTIONSET](/images/RISC_V_INSTRUCTIONSET.png)
-### L-TYPE, I-TYPE, S-TYPE 
+### ***L-TYPE, I-TYPE, S-TYPE***
 - `opcode` = `0000011`
 - 주소 계산: `addr = rs1 + signext(imm[11:0])`
 - 결과 저장: `rd <= 메모리에서 읽은 값 (확장 규칙 적용)`
