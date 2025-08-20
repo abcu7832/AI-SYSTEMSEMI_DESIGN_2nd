@@ -44,7 +44,7 @@
 ---
 
 ## 📌 어셈블리 예시
-```asm
+```riscv
 ADD  x7, x5, x6     # x7 = x5 + x6
 SUB  x7, x5, x6     # x7 = x5 - x6
 SLL  x7, x5, x6     # x7 = x5 << (x6[4:0])
