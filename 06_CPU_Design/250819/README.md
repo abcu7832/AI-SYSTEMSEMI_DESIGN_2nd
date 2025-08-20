@@ -14,7 +14,7 @@
 | `BGEU rs1, rs2, imm` | 111 | `rs1 >= rs2` | **unsigned** |
 
 ## 📌 어셈블리 예시
-```asm
+```riscv
 beq  x5, x6, label       # x5 == x6 이면 label로 분기
 bne  x5, x6, label       # x5 != x6 이면 분기
 blt  x5, x6, label       # signed 비교
