@@ -61,7 +61,7 @@ bgeu x5, x6, label
 | `jalr x0, x5, 4`   | 0010111 | `return addr 저장 안 함, PC=(x5+4)&~1` |
 
 ## 📌 어셈블리 예시
-```asm
+```riscv
 lui   x5, 0x12345      # x5 = 0x12345000
 auipc x6, 0x10         # x6 = PC + 0x10000
 jal x1, label      # x1=return addr, PC=label
