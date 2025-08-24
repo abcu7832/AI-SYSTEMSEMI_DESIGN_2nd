@@ -10,3 +10,4 @@
 ## PROJECT
 * UART로 제어하는 다기능 디지털 시계 설계
 * 목표: 전체 구조 모듈화
+[![**Verilog Project**](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so/Verilog-Project-259a8b2400b080e4b04fd411f230a8a7?source=copy_link)
