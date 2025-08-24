@@ -14,3 +14,6 @@
 ## PROJECT
 * 프로젝트명: Makjang Frogggggy
 * 프로젝트 종류: 게임
+[![Notion](
+https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white
+)](https://www.notion.so/Embedded-SW-GAME-PROJECT-259a8b2400b080f7aa48e1d167635b0c?source=copy_link)
