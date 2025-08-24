@@ -3,3 +3,4 @@
 ### ***CPU WarmingUp duration***: 250811~250814
 * CPU 구조 이해 및 실습
 ### ***CPU Design duration***: 250814~250824
+* RISC-V 기반 32-bit CPU 설계 프로젝트
