@@ -10,7 +10,7 @@
 ---
 
 ## 📌 프로젝트 소개
-RISC-V 32bit 기반의 CPU 설계를 목표로 하는 프로젝트입니다.  
+RISC-V 32-bit 기반의 CPU 설계를 목표로 하는 프로젝트입니다.  
 
 ### RISC-V Instruction Set
 ![RISC_V_INSTRUCTIONSET](/images/RISC_V_INSTRUCTIONSET.png)
