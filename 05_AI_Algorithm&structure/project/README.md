@@ -9,3 +9,6 @@
 ## Directory Description
 * ing: 프로젝트 진행 과정
 * result: 프로젝트 결과물
+
+
+https://www.notion.so/AI-EXAM-SUPERVISOR-25ba8b2400b080dda526c2b285b25f49?source=copy_link
