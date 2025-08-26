@@ -1,6 +1,10 @@
 # ⚙️ 시스템 반도체 설계 (CPU Design)
-
+![SystemVerilog](https://img.shields.io/badge/SystemVerilog-grey)
+![VCS](https://img.shields.io/badge/VCS-grey)
+![Verdi](https://img.shields.io/badge/Verdi-grey)
+![FPGA](https://img.shields.io/badge/FPGA-Basys3-blue)
 ---
+
 
 ## 📅 수업 및 프로젝트 일정
 
