@@ -4,7 +4,6 @@
 ![Python](https://img.shields.io/badge/Python_3.10-white?style=flat&logo=python&logoColor=007ACC)
 ## PROJECT TITLE: AI EXAM SUPERVISOR(AI 시험 감독관)
 * GROUP NAME: NUGABA (7th group)
-----------------------------------
 
 ## Directory Description
 * ing: 프로젝트 진행 과정
