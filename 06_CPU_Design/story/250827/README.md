@@ -1,6 +1,6 @@
-# CPU APB  
+# CPU APB: Advanced Peripheral Bus
 
-## AMBA APB (Advanced Peripheral Bus) Protocol
+## AMBA APB Protocol
 
 ### 📌 Overview
 - **APB**는 AMBA(Advanced Microcontroller Bus Architecture)의 일부로,  
