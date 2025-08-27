@@ -5,6 +5,7 @@
 ![250827_TIMING_DIAGRAM1](/images/250827_TIMING_DIAGRAM1.png)
 ### Read transfer
 ![250827_TIMING_DIAGRAM](/images/250827_TIMING_DIAGRAM.png)
+### FSM
 ![FSM](/images/250827_FSM.png)
 ## Overview
 - **APB**는 **저전력, 저비용**에 최적화된 단순 버스 프로토콜.
