@@ -10,13 +10,9 @@
 - 주로 **주변장치(Peripheral Device) 제어 레지스터 접근**에 사용.  
 - AXI/AHB와 연결 시 **APB Bridge**를 통해 연결됨.  
 
----
-
 ### 🔑 Key Concepts
 - **Requester (APB Bridge)**: 전송을 요청하는 주체.  
 - **Completer (Peripheral)**: 요청을 받아 응답하는 주체.  
-
----
 
 ### 📡 Signals
 주요 APB 인터페이스 신호:
@@ -36,12 +32,8 @@
 | **PSTRB**  | Requester  | Byte 단위 Write strobe |
 | **PPROT**  | Requester  | Access 보호 속성 (Normal/Privileged, Secure/Non-secure, Data/Instruction) |
 
----
-
 ### 🔄 FSM
 ![FSM](/images/250827_FSM.png)
-
----
 
 ### 🔄 Transfer Types
 1. **Write Transfer**
@@ -56,8 +48,6 @@
    - `PSLVERR=1`일 때 에러 발생.  
    - 읽기/쓰기 모두 에러 가능, 데이터는 무효일 수 있음.  
 
----
-
 ### ⚙️ Operating States
 APB는 단순한 **3상태 FSM**으로 동작:
 
@@ -66,8 +56,6 @@ APB는 단순한 **3상태 FSM**으로 동작:
 3. **ACCESS**: 실제 전송 진행 (`PENABLE=1`)  
    - `PREADY=0` → ACCESS 유지  
    - `PREADY=1` → 다음 SETUP 또는 IDLE로 전환  
-
----
 
 ### ✅ Summary
 - APB는 **저속 주변장치 제어에 최적화된 단순 버스**.  
@@ -84,8 +72,6 @@ APB는 단순한 **3상태 FSM**으로 동작:
 - 이 주소 공간을 **영역별로 분리**하여 메모리, 주변장치, 레지스터 등을 배치.  
 - 하드웨어 설계 시 **주소 디코더(Decoder)**가 특정 주소 범위에 어떤 장치가 연결될지 결정.  
 
----
-
 ### 📡 특징
 - **일원화된 접근 방식**  
   CPU는 메모리 읽기/쓰기를 하듯이 I/O 장치에도 접근 가능.  
@@ -96,8 +82,6 @@ APB는 단순한 **3상태 FSM**으로 동작:
 - **확장성**  
   새로운 장치를 추가할 때 특정 주소 영역을 할당하면 쉽게 확장 가능.  
 
----
-
 ### 🗂️ 예시 (32-bit Address Space)
 | 주소 범위 (Hex)             | 할당 대상                  | 설명                        |
 |-----------------------------|---------------------------|-----------------------------|
@@ -106,8 +90,6 @@ APB는 단순한 **3상태 FSM**으로 동작:
 | `0x2000_0000 ~ 0x20FF_FFFF` | Peripheral (UART, GPIO)   | 주변장치 제어 레지스터 |
 | `0x3000_0000 ~ 0x30FF_FFFF` | Timer / Interrupt Ctrl    | 타이머 및 인터럽트 제어 |
 | `0xFFFF_0000 ~ 0xFFFF_FFFF` | System Control / Debug    | 시스템 제어, 디버그 영역 |
-
----
 
 ### ✅ Summary
 - **Memory Map = 주소와 장치/메모리 대응표**  
