@@ -1,6 +1,7 @@
 # CPU APB 
 
 # About the APB protocol
+![250827_TIMING_DIAGRAM1](/images/250827_TIMING_DIAGRAM1.png)
 ![250827_TIMING_DIAGRAM](/images/250827_TIMING_DIAGRAM.png)
 ![FSM](/images/250827_FSM.png)
 ## Overview
