@@ -4,3 +4,4 @@ Test Bench로 APB 신호를 입력하여 임의의 주소에 Read/Write 시뮬�
 - 코드, Simulation 결과 Classroom에 업로드.
 
 ## Simulation 결과
+![FSM](/images/250827_FSM.png)
