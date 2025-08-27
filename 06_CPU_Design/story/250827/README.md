@@ -2,6 +2,7 @@
 
 # About the APB protocol
 ![TIMING_DIAGRAM](/images/250827_TIMING_DIAGRAM.png)
+![FSM](/images/250827_FSM.png)
 ## Overview
 - **APB**는 **저전력, 저비용**에 최적화된 단순 버스 프로토콜.
 - 인터페이스 복잡성을 줄이고, **minimal power consumption**을 목표로 설계됨.
