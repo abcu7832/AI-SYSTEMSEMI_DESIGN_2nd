@@ -145,5 +145,8 @@ main:
 ![250828_RegFile_](/images/250828_RegFile_.png)
 ### ControlUnit 수정 후, 상태 변화 과정
 ![250828_state_trans](/images/250828_state_trans.png)
+```
+ready신호가 들어온 뒤, S_MEM상태에서 FETCH로 넘어간다.
+```
 ### RAM
 ![250828_RAM_1plus2](/images/250828_RAM_1plus2.png)
