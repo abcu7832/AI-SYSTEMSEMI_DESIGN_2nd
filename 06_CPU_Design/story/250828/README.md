@@ -72,3 +72,13 @@ pselx: 어떤 slave 모듈이 선택되는지 결정하는 select신호
 
 ------------------
 ```
+### 특이했던점
+```systemverilog
+    genvar i;
+    generate
+        for (i = 0; i < $clog2(10_000); i++) begin
+            assign number[i] = cr[i] ? odr[i] : 1'bz;
+        end
+    endgenerate
+```
+* control register를 활성화시키지 않는다면 high impedance 상태로 바뀌도록 설계됨.
