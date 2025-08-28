@@ -156,6 +156,8 @@ ready신호가 들어온 뒤, S_MEM상태에서 FETCH로 넘어간다.
 ---
 # APB GPO, GPI, GPIO, FND 연결
 ![250828_MCU](/images/250828_MCU.png)
+
+
 ### APB Master
 ```
 FSM: IDLE -(transfer)> SETUP -(temp_write_reg)> ACCESS -(ready)> IDLE
