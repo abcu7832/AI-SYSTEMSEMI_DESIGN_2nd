@@ -68,6 +68,10 @@ APB는 단순한 **3상태 FSM**으로 동작:
 ## Memory Map (메모리 맵)
 ![stm32](/images/250828_stm32.png)
 ![stm32](/images/250827_stm32_memory_map.png)
+
+### Ex
+![stm32](/images/250827_stm32_memory_map_Ex.png)
+
 ### 🏗️ 구조
 - **주소 공간(Address Space)**: CPU가 인식할 수 있는 전체 주소 범위 (예: 32-bit CPU → 4GB).  
 - 이 주소 공간을 **영역별로 분리**하여 메모리, 주변장치, 레지스터 등을 배치.  
