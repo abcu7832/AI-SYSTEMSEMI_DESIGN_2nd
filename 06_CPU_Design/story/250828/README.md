@@ -113,7 +113,7 @@ module ControlUnit (
             S_MEM:  signals = 11'b0_0_1_1_000_0_0_0_1;
             L_EXE:  signals = 11'b0_0_1_0_001_0_0_0_0;
             L_MEM:  signals = 11'b0_0_1_0_001_0_0_0_1;
-            L_WB:   signals = 11'b0_1_1_0_001_0_0_0_0;  // 준비되면 load
+            L_WB:   signals = 11'b0_1_1_0_001_0_0_0_0;
         endcase
     end
 endmodule
