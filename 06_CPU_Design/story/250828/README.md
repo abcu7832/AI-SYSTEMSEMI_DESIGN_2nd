@@ -118,6 +118,7 @@ module ControlUnit (
     end
 endmodule
 ```
+- test ROM 1+2 연산
 ```assembly
 		li		sp,0x10001000
 main:
