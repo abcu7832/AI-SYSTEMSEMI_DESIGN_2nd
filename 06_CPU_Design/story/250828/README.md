@@ -156,3 +156,10 @@ ready신호가 들어온 뒤, S_MEM상태에서 FETCH로 넘어간다.
 ---
 # APB GPO, GPI, GPIO, FND 연결
 ![250828_MCU](/images/250828_MCU.png)
+### APB Master
+```
+FSM: IDLE -(transfer)> SETUP -(temp_write_reg)> ACCESS -(ready)> IDLE
+APB_Mux: mux_sel 값에 따라 RDATA를 결정하고 또한 ready 신호까지 결정
+APB_Decoder: pselx, mux_sel을 결정하는 디코더
+pselx: 어떤 slave 모듈이 선택되는지 결정하는 select신호
+```
