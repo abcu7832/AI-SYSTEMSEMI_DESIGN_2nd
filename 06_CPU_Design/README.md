@@ -1,4 +1,4 @@
-# ⚙️ 시스템 반도체 설계 (CPU Design)
+# ⚙️ 시스템 반도체 설계 (CPU Design) - 노진호 교수님
 ![SystemVerilog](https://img.shields.io/badge/SystemVerilog-grey)
 ![VCS](https://img.shields.io/badge/VCS-grey)
 ![Verdi](https://img.shields.io/badge/Verdi-grey)
