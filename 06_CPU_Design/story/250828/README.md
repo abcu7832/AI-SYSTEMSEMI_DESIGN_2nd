@@ -165,3 +165,18 @@ APB_Mux: mux_sel 값에 따라 RDATA를 결정하고 또한 ready 신호까지 �
 APB_Decoder: pselx, mux_sel을 결정하는 디코더
 pselx: 어떤 slave 모듈이 선택되는지 결정하는 select신호
 ```
+### Memory Map
+```
+0x0000_0000   ROM
+
+0x1000_0000   RAM
+
+0x1000_1000   GPO
+
+0x1000_2000   GPI
+
+0x1000_3000   GPIO
+
+0x1000_4000	  FND Controller
+
+```
