@@ -150,3 +150,6 @@ ready신호가 들어온 뒤, S_MEM상태에서 FETCH로 넘어간다.
 ```
 ### RAM
 ![250828_RAM_1plus2](/images/250828_RAM_1plus2.png)
+```
+1+2 연산 후, 3이 RAM에 store 된 시뮬레이션
+```
