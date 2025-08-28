@@ -1,5 +1,5 @@
-# AMBA APB 
-## SLAVE 모듈로 RAM 연결
+# AMBA APB 설계
+- SLAVE 모듈로 RAM 연결
 ## ControlUnit 변경
 ```systemverilog
 `timescale 1ns / 1ps
