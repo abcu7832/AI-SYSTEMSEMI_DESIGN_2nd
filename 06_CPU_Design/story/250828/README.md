@@ -141,4 +141,9 @@ main:
         addi    sp,sp,32
         jr      ra
 ```
-![FSM](/images/250827_FSM.png)
+### RegisterFile 변화 index:15는 a5를 가리킴
+![250828_RegFile_](/images/250828_RegFile_.png)
+### ControlUnit 수정 후, 상태 변화 과정
+![250828_state_trans](/images/250828_state_trans.png)
+### RAM
+![250828_RAM_1plus2](/images/250828_RAM_1plus2.png)
