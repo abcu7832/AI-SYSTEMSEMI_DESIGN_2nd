@@ -66,10 +66,9 @@ APB는 단순한 **3상태 FSM**으로 동작:
 ---
 
 ## Memory Map (메모리 맵)
+### Ex) stm32F103 coretex-M3
 ![stm32](/images/250828_stm32.png)
 ![stm32](/images/250827_stm32_memory_map.png)
-
-### Ex
 ![stm32](/images/250827_stm32_memory_map_Ex.png)
 
 ### 🏗️ 구조
