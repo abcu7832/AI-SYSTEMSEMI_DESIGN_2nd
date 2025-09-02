@@ -7,3 +7,11 @@
 | **DataType**        | H/W 중심의 DataType | S/W 중심의 DataType(S/W기능 추가)        |
 | **interface**       |           X         | O(S/W와 H/W를 연결하는 케이블 같은 느낌) |
 | **randomization**   | randome(제한적기능) | 각 변수에 randome 생성과 contraint 기능(corner case 생성)  |
+
+### SystemVerilog DataType
+| 종류 | 설명 |
+| ---- | ---- |
+| 4-state(벡터) | 0,1,x,z logic,reg,wire |
+| 2-state(벡터) | 0,1 bit |
+| 4-state(정수) | integer(32-bit) |
+| 2-state(정수) | byte(8-bit), shortint(16-bit), int(32-bit), longint(64-bit) |
