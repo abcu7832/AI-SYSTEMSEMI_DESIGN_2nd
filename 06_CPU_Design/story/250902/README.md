@@ -27,4 +27,6 @@
 ```
 ex)
 bit arr[]; arr = new[8]; -> bit arr[8];
+byte arr2[]; arr2 = new[4]; -> byte arr2[4];
+int arr3[]; arr3 = new[16]; -> int arr3[16];
 ```
