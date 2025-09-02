@@ -17,12 +17,14 @@
 | 2-state(정수) | byte(8-bit), shortint(16-bit), int(32-bit), longint(64-bit) |
 
 ### 배열
-* 고정 길이 배열 (fixed-size array, static array)
-  compile할때 크기 결정됨(runtime일때 배열크기 변경 불가).
+* 고정 길이 배열 (fixed-size array, static array): compile할때 크기 결정됨(runtime일때 배열크기 변경 불가).
 ```
   bit arr[8] -> 8-bit
   byte arr2[4] -> 8*4-bit
   int arr3[16] -> 32*16-bit
 ```
-* 동적 배열 (dynamic array) like malloc (C)
-  runtime일때 크기 결정됨(runtime일때 배열크기 변경 가능).
+* 동적 배열 (dynamic array) like malloc (C): runtime일때 크기 결정됨(runtime일때 배열크기 변경 가능).
+```
+ex)
+bit arr[]; arr = new[8]; -> bit arr[8];
+```
