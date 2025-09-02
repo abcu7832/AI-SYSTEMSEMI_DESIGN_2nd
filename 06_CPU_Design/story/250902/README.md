@@ -36,3 +36,6 @@ bit que[$]
 int que2[$]
 ```
 * Testbench, UVM 구조의 SystemVerilog 검증 Testbench
+```
+env(class), interface, dut
+```
