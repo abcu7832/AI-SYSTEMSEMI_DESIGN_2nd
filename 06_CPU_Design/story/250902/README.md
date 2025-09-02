@@ -16,7 +16,6 @@
 | 4-state(정수) | integer(32-bit) |
 | 2-state(정수) | byte(8-bit), shortint(16-bit), int(32-bit), longint(64-bit) |
 
-### 배열
 * 고정 길이 배열 (fixed-size array, static array): compile할때 크기 결정됨(runtime일때 배열크기 변경 불가).
 ```
   bit arr[8] -> 8-bit
@@ -25,8 +24,15 @@
 ```
 * 동적 배열 (dynamic array) like malloc (C): runtime일때 크기 결정됨(runtime일때 배열크기 변경 가능).
 ```
+new -> heap 영역에 메모리 공간 생김. 그 메모리 공간에 주소가 들어가고 스택영역에 할당됨. 이때 사용되는 중간다리 역할이 handler(ex의 arr)
 ex)
 bit arr[]; arr = new[8]; -> bit arr[8];
 byte arr2[]; arr2 = new[4]; -> byte arr2[4];
 int arr3[]; arr3 = new[16]; -> int arr3[16];
 ```
+* Queue 큐 FIFO
+```
+bit que[$]
+int que2[$]
+```
+* Testbench, UVM 구조의 SystemVerilog 검증 Testbench
