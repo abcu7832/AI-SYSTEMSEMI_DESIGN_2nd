@@ -15,3 +15,11 @@
 | 2-state(벡터) | 0,1 bit |
 | 4-state(정수) | integer(32-bit) |
 | 2-state(정수) | byte(8-bit), shortint(16-bit), int(32-bit), longint(64-bit) |
+
+### 배열
+* 고정 길이 배열 (fixed-size array)
+```
+  bit arr[8] -> 8-bit
+  byte arr2[4] -> 8*4-bit
+  int arr3[16] -> 32*16-bit
+```
