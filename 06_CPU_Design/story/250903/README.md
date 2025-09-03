@@ -15,7 +15,7 @@ monitor에서 보낸 결과와 비교해서 같으면 Pass, 다르면 Fail
 
 
 * Memory Map
-
+![250903_Memory_Map](/images/250903_Memory_Map.png)
 
 * 검증 코드
 
