@@ -31,7 +31,7 @@ typedef struct {
 } FND_TypeDef;
 
 #define APB_BASE    0x10000000
-
+/*
 #define GPO_BASE    (APB_BASE + 0x1000)
 #define GPO_CR      (*(uint32_t *)(GPO_BASE + 0x00))
 #define GPO_ODR     (*(uint32_t *)(GPO_BASE + 0x04))
@@ -44,7 +44,7 @@ typedef struct {
 #define GPIO_CR     (*(uint32_t *)(GPIO_BASE + 0x00))
 #define GPIO_IDR    (*(uint32_t *)(GPIO_BASE + 0x04))
 #define GPIO_ODR    (*(uint32_t *)(GPIO_BASE + 0x08))
-
+*/
 #define FND_BASE    (APB_BASE + 0x4000)
 //#define FND_CR      *(uint32_t *)(FND_BASE + 0x00)
 //#define FND_ODR     *(uint32_t *)(FND_BASE + 0x04)  
@@ -93,5 +93,5 @@ void delay(uint32_t t)
 
 * Test Scenario
 ```
-count 
+count -> delay -> count -> ... -> ..
 ```
