@@ -10,6 +10,6 @@ monitor에서 보낸 결과와 비교해서 같으면 Pass, 다르면 Fail
 ![250903_tcl](/images/250903_tcl2.png)
 
 -----------------------------------
-### FndControl Peripheral Episode
+### FndControl Peripheral
 
 ![250903_FndControl_pheriph](/images/250903_FndControl_pheriph.png)
