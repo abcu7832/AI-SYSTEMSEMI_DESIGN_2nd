@@ -29,3 +29,5 @@ Read operations use the following channels:
 ### Channel handshake
 
 ![250904_handshake](/images/250904_handshake.png)
+
+![250904_channel_src_dst](/images/250904_channel_src_dst.png)
