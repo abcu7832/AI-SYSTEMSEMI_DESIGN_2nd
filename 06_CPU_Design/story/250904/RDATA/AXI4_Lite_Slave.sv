@@ -210,9 +210,9 @@ module AXI4_Lite_Slave (
                 end
             end
             R_READY: begin
+                RVALID       = 1'b1;
                 r_state_next = R_IDLE;
                 RRESP        = 2'b00;
-                RVALID       = 1'b1;
                 case (temp_araddr_reg[3:2])
                     2'b00: RDATA = slv_reg0;
                     2'b01: RDATA = slv_reg1;
