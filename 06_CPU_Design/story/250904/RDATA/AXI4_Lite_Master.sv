@@ -169,34 +169,36 @@ module AXI4_Lite_Master (
     } ar_state_e;
 
     ar_state_e ar_state, ar_state_next;
-    logic [3:0] temp_araddr_reg, temp_araddr_next;
+    //logic [3:0] temp_araddr_reg, temp_araddr_next;
 
     always_ff @(posedge ACLK, negedge ARESETn) begin
         if (!ARESETn) begin
             ar_state        <= AR_IDLE;
-            temp_araddr_reg <= 0;
+            //temp_araddr_reg <= 0;
         end else begin
             ar_state        <= ar_state_next;
-            temp_araddr_reg <= temp_araddr_next;
+            //temp_araddr_reg <= temp_araddr_next;
         end
     end
 
     always_comb begin
         ar_state_next    = ar_state;
         ARVALID          = 1'b0;
-        ARADDR           = temp_araddr_reg;
-        temp_araddr_next = temp_araddr_reg;
+        ARADDR           = addr;
+        //ARADDR           = temp_araddr_reg;
+        //temp_araddr_next = temp_araddr_reg;
         case (ar_state)
             AR_IDLE: begin
                 ARVALID = 1'b0;
                 if (transfer & ~write) begin
                     ar_state_next    = AR_VALID;
-                    temp_araddr_next = addr;
                 end
             end
             AR_VALID: begin
                 ARVALID = 1'b1;
-                ARADDR  = temp_araddr_reg;
+                //temp_araddr_next = addr;
+                //ARADDR  = temp_araddr_reg;
+                ARADDR           = addr;
                 if (ARREADY) begin
                     ar_state_next = AR_IDLE;
                 end
@@ -211,33 +213,37 @@ module AXI4_Lite_Master (
     } r_state_e;
 
     r_state_e r_state, r_state_next;
-    logic [31:0] temp_rdata_reg, temp_rdata_next;
+    //logic [31:0] temp_rdata_reg, temp_rdata_next;
 
     always_ff @(posedge ACLK, negedge ARESETn) begin
         if (!ARESETn) begin
             r_state        <= R_IDLE;
-            temp_rdata_reg <= 0;
+            //temp_rdata_reg <= 0;
         end else begin
             r_state        <= r_state_next;
-            temp_rdata_reg <= temp_rdata_next;
+            //temp_rdata_reg <= temp_rdata_next;
         end
     end
 
     always_comb begin
-        r_state_next = r_state;
-        r_ready      = 1'b0;
+        r_state_next    = r_state;
+        r_ready         = 1'b0;
+        //temp_rdata_next = temp_rdata_reg;
         case (r_state)
             R_IDLE: begin
                 RREADY = 1'b0;
-                if (ARVALID & ARREADY) begin
+                if (ARVALID) begin
+                    //temp_rdata_next = RDATA;  
                     r_state_next = R_VALID;
+                    RREADY  = 1'b1;
                 end
             end
             R_VALID: begin
-                RREADY  = 1'b1;
-                r_ready = 1'b1;
-                rdata   = temp_rdata_reg;
-                if (RREADY) begin
+                r_ready = 1'b1;              
+                if (RVALID) begin
+                    //rdata   = temp_rdata_reg;
+                    //rdata = RDATA;
+                    rdata = RDATA;
                     r_state_next = R_IDLE;
                 end
             end
