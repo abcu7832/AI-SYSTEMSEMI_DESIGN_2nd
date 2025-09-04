@@ -23,7 +23,7 @@ Read operations use the following channels:
 
 * The slave can also return an error message on the Read Data (R) channel. An error occurs if, for example, the address is not valid, or the data is corrupted, or the access does not have the right security permission.
 
-### Read sequence can happen at the same time as a write sequence 
+### ***Read sequence can happen at the same time as a write sequence***
 
 ## Channel transfers and transactions
 
