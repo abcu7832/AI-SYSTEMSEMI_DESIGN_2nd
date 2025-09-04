@@ -38,3 +38,5 @@ Read operations use the following channels:
 * transaction: an ***entire*** burst of transfers
 
 ![250904_timing_diagram](/images/250904_timing_diagram.png)
+
+![250904_timing_diagram1](/images/250904_timing_diagram1.png)
