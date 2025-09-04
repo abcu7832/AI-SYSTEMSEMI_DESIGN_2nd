@@ -26,6 +26,7 @@ Read operations use the following channels:
 ### Read sequence can happen at the same time as a write sequence 
 
 ## Channel transfers and transactions
+----
 ### Channel handshake
 
 ![250904_handshake](/images/250904_handshake.png)
