@@ -39,4 +39,4 @@ Read operations use the following channels:
 
 ![250904_timing_diagram](/images/250904_timing_diagram.png)
 
-![250904_timing_diagram1](/images/250904_timing_diagram1.png)
+![250905_timing+diagram_read](/images/250905_timing+diagram_read.png)
