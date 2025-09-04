@@ -61,6 +61,7 @@ module tb_AXI4_Lite ();
         @(posedge ACLK);
         transfer = 0;
         wait (ready);
+        //@(posedge ACLK);
     endtask
 
     initial begin
@@ -69,6 +70,7 @@ module tb_AXI4_Lite ();
         axi_write(4'h04, 2);
         axi_write(4'h08, 3);
         axi_write(4'h0C, 4);
+        #50;
         axi_read(4'h0C);
         axi_read(4'h08);
         axi_read(4'h04);
