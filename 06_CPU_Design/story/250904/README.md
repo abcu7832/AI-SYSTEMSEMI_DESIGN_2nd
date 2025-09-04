@@ -27,3 +27,5 @@ Read operations use the following channels:
 
 ## Channel transfers and transactions
 ### Channel handshake
+
+250904_handshake.png
