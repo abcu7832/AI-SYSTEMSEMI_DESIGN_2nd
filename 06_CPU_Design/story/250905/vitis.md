@@ -72,5 +72,5 @@ int main()
 
     return 0;
 }
-
 ```
+250905_ip_diagram.png
