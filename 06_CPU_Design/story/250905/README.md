@@ -19,7 +19,7 @@ module S00_AXI_v1_0_S00_AXI #(
     output wire S_AXI_AWREADY,
     // Write
     input wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_WDATA,
-    input wire [(C_S_AXI_DATA_WIDTH/8)-1 : 0] S_AXI_WSTRB, // byte의 위치를 알려주는 strobe 데이터
+    input wire [(C_S_AXI_DATA_WIDTH/8)-1 : 0] S_AXI_WSTRB, // 4byte의 데이터 중, byte의 위치를 알려주는 strobe 데이터
     input wire S_AXI_WVALID,
     output wire S_AXI_WREADY,
     // Write Response
