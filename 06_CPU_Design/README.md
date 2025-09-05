@@ -18,6 +18,9 @@
 ### 🔹 CPU Design (2508.14 ~ 2508.24)
 - **RISC-V 기반 32-bit CPU 설계 프로젝트**  
 
+### 🔹 CPU Design (2508.14 ~ 2508.24)
+- **RISC-V 기반 APB & AXI peripheral 프로젝트**
+  
 ### 도움받은 사이트
 - https://riscvasm.lucasteske.dev/ : Online RISC-V Assembler
 - https://godbolt.org/ : Compiler Explorer
