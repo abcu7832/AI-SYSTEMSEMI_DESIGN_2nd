@@ -73,4 +73,4 @@ int main()
     return 0;
 }
 ```
-250905_ip_diagram.png
+![250905_ip_diagram](/images/250905_ip_diagram.png)
