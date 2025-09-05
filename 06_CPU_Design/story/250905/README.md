@@ -200,7 +200,7 @@ module S00_AXI_v1_0_S00_AXI #(
             axi_rvalid <= 0;
             axi_rresp  <= 0;  // okay
         end else begin
-            if (axi_arready && S_AXI_ARVALID && ~axi_rvalid) begin
+            if (axi_arready && S_AXI_ARVALID && ~axi_rvalid) begin // (handshake) -> read
                 axi_rvalid <= 1'b1;
                 axi_rresp  <= 2'b0;  // okay
             end else if (axi_rvalid && S_AXI_RREADY) begin
