@@ -132,6 +132,7 @@ module S00_AXI_v1_0_S00_AXI #(
                     for (byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH / 8) - 1; byte_index = byte_index + 1) begin
                         if (S_AXI_WSTRB[byte_index] == 1) begin
                             slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                            // slv_reg[0+:8] == slv_reg[7:0] 0을 포함한 8개
                         end
                     end
                     2'h1:
