@@ -28,9 +28,6 @@
 | **PSELx**  | Requester  | 특정 Peripheral 선택 |
 | **PENABLE**| Requester  | Access Phase 활성화 |
 | **PREADY** | Completer  | 전송 완료 여부 표시 |
-| **PSLVERR**| Completer  | 전송 오류 표시 |
-| **PSTRB**  | Requester  | Byte 단위 Write strobe |
-| **PPROT**  | Requester  | Access 보호 속성 (Normal/Privileged, Secure/Non-secure, Data/Instruction) |
 
 ### 🔄 FSM
 ![FSM](/images/250827_FSM.png)
