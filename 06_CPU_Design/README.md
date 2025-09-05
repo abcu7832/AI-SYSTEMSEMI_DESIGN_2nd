@@ -1,8 +1,8 @@
 # ⚙️ 시스템 반도체 설계 (CPU Design)
 ## 수업진행: 노진호 교수님
 ![SystemVerilog](https://img.shields.io/badge/SystemVerilog-grey)
-![VCS](https://img.shields.io/badge/VIVADO-grey)
 ![Verdi](https://img.shields.io/badge/Verdi-grey)
+![VCS](https://img.shields.io/badge/Vivado-grey)
 ![FPGA](https://img.shields.io/badge/FPGA-Basys3-blue)
 ---
 
