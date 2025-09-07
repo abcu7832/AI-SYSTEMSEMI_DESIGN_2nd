@@ -239,6 +239,7 @@ module S00_AXI_v1_0_S00_AXI #(
 
 endmodule
 ```
+</details>
 
 ## Block Design in Vivado
 ### MCU using ip of Xilinx
@@ -325,3 +326,4 @@ int main()
     return 0;
 }
 ```
+</details>
