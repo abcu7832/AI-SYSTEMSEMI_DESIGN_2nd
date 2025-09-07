@@ -22,6 +22,8 @@ monitor에서 보낸 결과와 비교해서 같으면 Pass, 다르면 Fail
 
 * 검증 코드
 
+<details>
+  <summary>🧩 C: TEST CODE (클릭해 펼치기)</summary>
 ```c
 #include<stdint.h>
 
@@ -90,6 +92,7 @@ void delay(uint32_t t)
     }
 }
 ```
+</details>
 
 * Test Scenario
 ```
