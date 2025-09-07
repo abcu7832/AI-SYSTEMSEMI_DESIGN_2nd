@@ -236,3 +236,5 @@ module S00_AXI_v1_0_S00_AXI #(
 
 endmodule
 ```
+## Block Design in Vivado
+250907_Block_Design.png
