@@ -2,6 +2,9 @@
 ![250905_simulation_read](/images/250905_simulation_read.png)
 
 ## AXI IP ANALYSIS
+<details>
+  <summary>🧩 Verilog: S00_AXI_v1_0_S00_AXI (클릭해 펼치기)</summary>
+
 ```verilog
 `timescale 1 ns / 1 ps
 
@@ -236,9 +239,89 @@ module S00_AXI_v1_0_S00_AXI #(
 
 endmodule
 ```
+
 ## Block Design in Vivado
 ### MCU using ip of Xilinx
 ![250905_Block_Design](/images/250905_Block_Design.png)
 
 ### Block ip
 ![250905_Block](/images/250905_Block.png)
+
+## vitis
+
+<details>
+  <summary>💻 C: main.c (클릭해 펼치기)</summary>
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+#include "xil_printf.h"
+#include "xparameters.h"// ctrl누르면 마우스 위로 올리면 link 나옴
+#include "sleep.h"
+
+typedef struct {
+	uint32_t CR;
+	uint32_t FDR;
+}FND_TypeDef;
+
+typedef struct {
+	uint32_t CR;
+	uint32_t ODR;
+	uint32_t IDR;
+}GPIO_TypeDef;
+
+#define FND_BASEADDR		 XPAR_FNDCONTROLLER_0_S00_AXI_BASEADDR
+#define GPIO_BASEADDR 		 XPAR_GPIO_0_S00_AXI_BASEADDR
+#define FND					 ((FND_TypeDef *)(FND_BASEADDR))
+#define GPIO				 ((GPIO_TypeDef *)(GPIO_BASEADDR))
+
+void FND_Init(FND_TypeDef *fnd)
+{
+	fnd->CR = 0x01;
+}
+
+void FND_WriteData(FND_TypeDef *fnd, uint8_t data)
+{
+	fnd->FDR = data;
+}
+
+uint8_t FND_ReadData(FND_TypeDef *fnd)
+{
+	return fnd->FDR;
+}
+
+void GPIO_Init(GPIO_TypeDef *gpio, uint8_t data)
+{
+	gpio->CR = data;
+}
+
+void GPIO_WriteData(GPIO_TypeDef *gpio, uint8_t data)
+{
+	gpio->ODR = data;
+}
+
+uint8_t GPIO_ReadData(GPIO_TypeDef *gpio)
+{
+	return gpio->IDR;
+}
+
+int main()
+{
+	uint32_t counter = 0;
+	uint8_t led = 0;
+
+	FND_Init(FND);
+	GPIO_Init(GPIO, 0x0f);
+
+	while(1)
+	{
+		FND_WriteData(FND, counter);
+		GPIO_WriteData(GPIO, led);
+		counter++;
+		led = led ^ 0x0f;
+		usleep(100000);
+	}
+
+    return 0;
+}
+```
