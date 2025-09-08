@@ -128,6 +128,9 @@ Active Video: 실제로 디스플레이에 보여지는 픽셀들
 ---
 
 # VGA
+### VGA BLOCK DIAGRAM
+
+![250908_VGA_module](/images/250908_VGA_module.png)
 
 RGB 444 format
 
