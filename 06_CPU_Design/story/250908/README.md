@@ -128,3 +128,9 @@ Active Video: 실제로 디스플레이에 보여지는 픽셀들
 ---
 
 # VGA
+
+RGB 444 format
+
+### VGA 실습
+
+![250908_VGA_화면조정](/images/250908_VGA_화면조정.png)
