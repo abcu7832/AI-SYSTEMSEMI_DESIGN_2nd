@@ -1,6 +1,6 @@
 # 강의 내용
 
-# 🖥️ Display Timing 정리 (Front Porch / Sync / Back Porch / Horizontal & Vertical)
+# 🖥️ Display Timing 정리
 
 디지털 디스플레이 시스템(VGA, HDMI 등)에서는 화면을 구성하기 위해 **수평(Horizontal)** 및 **수직(Vertical)** 방향의 타이밍이 필수적입니다.  
 이를 구성하는 기본 요소인 **Front Porch**, **Sync Pulse**, **Back Porch**, **Active Video**에 대해 설명합니다.
