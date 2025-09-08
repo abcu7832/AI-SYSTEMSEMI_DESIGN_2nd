@@ -139,7 +139,7 @@ RGB 444 format
 ![250908_VGA_화면조정](/images/250908_VGA_화면조정.png)
 
 <details>
-  <summary>🧩 Verilog: S00_AXI_v1_0_S00_AXI (클릭해 펼치기)</summary>
+  <summary>🧩 SystemVerilog: VGA (클릭해 펼치기)</summary>
 
 ```verilog
 
