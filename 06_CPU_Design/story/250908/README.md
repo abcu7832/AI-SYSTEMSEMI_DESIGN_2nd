@@ -60,7 +60,7 @@ http://tinyvga.com/vga-timing
 
 ## ⬇️ 4. 수직 타이밍 (Vertical Timing)
 
-하나의 **프레임(Frame)**을 구성하기 위한 줄(Line) 단위 타이밍:
+하나의 프레임(Frame)을 구성하기 위한 줄(Line) 단위 타이밍:
 
 
 ### ✅ VGA 640x480 @ 60Hz 기준 수직 타이밍
