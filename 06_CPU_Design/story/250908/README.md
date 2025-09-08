@@ -113,8 +113,9 @@ pixel을 기준으로 계산!!
 [ Vertical Timing ]
 |<--Front-->|<--Sync-->|<--Back-->|<--Active Video-->|
     10 lines    2 lines    33 lines      480 lines
+```
 
-✅ 8. 핵심 요약
+## ✅ 8. 핵심 요약
 
 Front Porch: 다음 Sync 전에 잠깐 대기 (줄/프레임 시작 전)
 
