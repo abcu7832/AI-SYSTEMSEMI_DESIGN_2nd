@@ -134,3 +134,222 @@ RGB 444 format
 ### VGA 실습
 
 ![250908_VGA_화면조정](/images/250908_VGA_화면조정.png)
+
+<details>
+  <summary>🧩 Verilog: S00_AXI_v1_0_S00_AXI (클릭해 펼치기)</summary>
+
+```verilog
+
+`timescale 1ns / 1ps
+
+module VGA_Display_Switch (
+    input  logic       clk,
+    input  logic       reset,
+    input  logic [3:0] sw_red,
+    input  logic [3:0] sw_green,
+    input  logic [3:0] sw_blue,
+    output logic       h_sync,
+    output logic       v_sync,
+    output logic [3:0] r_port,
+    output logic [3:0] g_port,
+    output logic [3:0] b_port
+);
+    logic DE;
+    logic [$clog2(525)-1:0] x_pixel;
+    logic [$clog2(800)-1:0] y_pixel;
+
+    VGA_RGB_Switch U_VGA_RGB_Switch (.*);
+    VGA_Decoder U_VGA_Decoder (.*);
+endmodule
+
+module VGA_Decoder #(
+    parameter int H_MAX = 800,
+    parameter int V_MAX = 525
+) (
+    input  logic                     clk,
+    input  logic                     reset,
+    output logic                     h_sync,
+    output logic                     v_sync,
+    output logic [$clog2(V_MAX)-1:0] x_pixel,
+    output logic [$clog2(H_MAX)-1:0] y_pixel,
+    output logic                     DE
+);
+
+    logic pclk;
+    logic [$clog2(V_MAX)-1:0] v_counter;
+    logic [$clog2(H_MAX)-1:0] h_counter;
+
+    Pixel_clk_gen U_Pixel_clk_gen (.*);
+    pixel_counter U_pixel_counter (.*);
+    vga_decoder U_vga_decoder (.*);
+
+endmodule
+
+module Pixel_clk_gen (
+    input  logic clk,
+    input  logic reset,
+    output logic pclk
+);
+
+    logic [1:0] p_counter;
+
+    always_ff @(posedge clk) begin
+        if (reset) begin
+            p_counter <= 0;
+            pclk      <= 1'b0;
+        end else begin
+            p_counter <= p_counter + 1;
+            if (p_counter == 3) begin
+                pclk <= 1'b1;
+            end else begin
+                pclk <= 1'b0;
+            end
+        end
+    end
+endmodule
+
+module pixel_counter #(
+    parameter int H_MAX = 800,
+    parameter int V_MAX = 525
+) (
+    input  logic                     pclk,
+    input  logic                     reset,
+    output logic [$clog2(V_MAX)-1:0] v_counter,
+    output logic [$clog2(H_MAX)-1:0] h_counter
+);
+
+    always_ff @(negedge pclk, posedge reset) begin
+        if (reset) begin
+            h_counter <= 0;
+        end else begin
+            if (h_counter == H_MAX - 1) begin
+                h_counter <= 0;
+            end else begin
+                h_counter <= h_counter + 1;
+            end
+        end
+    end
+
+    always_ff @(negedge pclk, posedge reset) begin
+        if (reset) begin
+            v_counter <= 0;
+        end else begin
+            if (h_counter == H_MAX - 1) begin
+                if (v_counter == V_MAX - 1) begin
+                    v_counter <= 0;
+                end else begin
+                    v_counter <= v_counter + 1;
+                end
+            end
+        end
+    end
+endmodule
+
+module vga_decoder #(
+    parameter int H_MAX = 800,
+    parameter int V_MAX = 525
+) (
+    input  logic [$clog2(V_MAX)-1:0] v_counter,
+    input  logic [$clog2(H_MAX)-1:0] h_counter,
+    output logic                     h_sync,
+    output logic                     v_sync,
+    output logic [$clog2(V_MAX)-1:0] x_pixel,
+    output logic [$clog2(H_MAX)-1:0] y_pixel,
+    output logic                     DE
+);
+    // 640*480 기준
+    localparam H_Visible_area = 640;
+    localparam H_Front_porch = 16;
+    localparam H_Sync_pulse = 96;
+    localparam H_Back_porch = 48;
+    localparam H_Whole_line = 800;
+
+    localparam V_Visible_area = 480;
+    localparam V_Front_porch = 10;
+    localparam V_Sync_pulse = 2;
+    localparam V_Back_porch = 33;
+    localparam V_Whole_line = 525;
+
+    assign h_sync = !((h_counter >= (H_Visible_area + H_Front_porch)) && (h_counter <= (H_Visible_area + H_Front_porch + H_Sync_pulse)));
+    assign v_sync = !((v_counter >= (V_Visible_area + V_Front_porch)) && (v_counter <= (V_Visible_area + V_Front_porch + V_Sync_pulse)));
+    assign DE = ((h_counter < H_Visible_area) && (v_counter < V_Visible_area));
+    assign x_pixel = h_counter;
+    assign y_pixel = v_counter;
+
+endmodule
+
+module VGA_RGB_Switch (
+    input  logic [            3:0] sw_red,
+    input  logic [            3:0] sw_green,
+    input  logic [            3:0] sw_blue,
+    input  logic                   DE,
+    input  logic [$clog2(800)-1:0] x_pixel,
+    input  logic [$clog2(525)-1:0] y_pixel,
+    output logic [            3:0] r_port,
+    output logic [            3:0] g_port,
+    output logic [            3:0] b_port
+);
+/*
+    assign r_port = DE ? sw_red : 4'b0;
+    assign g_port = DE ? sw_green : 4'b0;
+    assign b_port = DE ? sw_blue : 4'b0;
+
+*/
+    logic [11:0] color;
+
+    assign r_port = DE ? color[11:8] : 4'b0;
+    assign g_port = DE ? color[7:4] : 4'b0;
+    assign b_port = DE ? color[3:0] : 4'b0;
+
+    always_comb begin
+        if (y_pixel < 330) begin
+            if (x_pixel <= 91) begin
+                color = 12'hBBB;//흰
+            end else if(x_pixel <= 182) begin
+                color = 12'hBB0;//노
+            end else if(x_pixel <= 273) begin
+                color = 12'h0BB;//하늘
+            end else if(x_pixel <= 364) begin
+                color = 12'h0B0;//연두
+            end else if(x_pixel <= 455) begin
+                color = 12'hB0B;//핑크
+            end else if(x_pixel <= 546) begin
+                color = 12'hB00;//빨
+            end else begin
+                color = 12'h00B;//파
+            end
+        end else if(y_pixel < 360) begin
+            if (x_pixel <= 91) begin
+                color = 12'h00F;//파
+            end else if(x_pixel <= 182) begin
+                color = 12'h000;//검
+            end else if(x_pixel <= 273) begin
+                color = 12'hB0B;//핑크
+            end else if(x_pixel <= 364) begin
+                color = 12'h000;//검
+            end else if(x_pixel <= 455) begin
+                color = 12'h07F;//하늘
+            end else if(x_pixel <= 546) begin
+                color = 12'h000;//검
+            end else begin
+                color = 12'hBBB;//흰
+            end
+        end else begin
+            if(x_pixel <= 119) begin
+                color = 12'h006;//남
+            end else if(x_pixel <= 239) begin
+                color = 12'hFFF;//흰
+            end else if(x_pixel <= 359) begin
+                color = 12'h70F;//보라
+            end else if(x_pixel <= 479) begin
+                color = 12'h000;//검
+            end else if(x_pixel <= 559) begin
+                color = 12'h101;//연검
+            end else begin
+                color = 12'h001;//파검
+            end
+        end
+    end
+endmodule
+```
+</details>
