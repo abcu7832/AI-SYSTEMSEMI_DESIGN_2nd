@@ -90,6 +90,7 @@ http://tinyvga.com/vga-timing
 ### <주파수 계산>
 
 ex) 1초 -> 800px * 525 line * 60 frame = 25.2MHz
+
 pixel을 기준으로 계산!!
 
 ---
