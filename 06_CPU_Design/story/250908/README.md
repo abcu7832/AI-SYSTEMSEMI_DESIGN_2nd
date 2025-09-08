@@ -19,6 +19,8 @@
 
 ![250908_VGA](/images/250908_VGA.png)
 
+---
+
 ### VGA 640*480 -> 디스플레이 영역(porch와 sync 구간 제외) / 합치면 horizontal: 800 pixels, vertical: 525 lines
 
 | 용어              | 설명 |
