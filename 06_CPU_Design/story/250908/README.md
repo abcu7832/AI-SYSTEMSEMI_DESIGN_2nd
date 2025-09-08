@@ -124,3 +124,7 @@ Sync Pulse: “줄/프레임 시작”을 알리는 동기 신호
 Back Porch: Sync 이후 데이터 출력 전의 안정 대기
 
 Active Video: 실제로 디스플레이에 보여지는 픽셀들
+
+---
+
+# VGA
