@@ -31,6 +31,9 @@
 | **Vertical Timing**   | 한 프레임(Frame)을 출력하기 위한 전체 시간 구성 |
 
 ---
+### Standard Timing
+
+http://tinyvga.com/vga-timing
 
 ## ⏱ 3. 수평 타이밍 (Horizontal Timing)
 
