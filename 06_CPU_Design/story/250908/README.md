@@ -19,6 +19,8 @@
 
 ![250908_VGA](/images/250908_VGA.png)
 
+### VGA 640*480 -> 디스플레이 영역(porch와 sync 구간 제외) 합치면 800 pixels
+
 | 용어              | 설명 |
 |-------------------|------|
 | **Front Porch**   | 화면을 그리기 *전*의 짧은 여유 시간 |
@@ -108,7 +110,3 @@ Sync Pulse: “줄/프레임 시작”을 알리는 동기 신호
 Back Porch: Sync 이후 데이터 출력 전의 안정 대기
 
 Active Video: 실제로 디스플레이에 보여지는 픽셀들
-
-### front porch?  sync back porch display horizonal timing vertical timing
-
-### VGA 640*480 -> 디스플레이 영역(porch와 sync 구간 제외) 합치면 800 pixels
