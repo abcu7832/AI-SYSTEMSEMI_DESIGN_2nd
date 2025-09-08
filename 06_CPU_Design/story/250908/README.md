@@ -39,7 +39,7 @@ http://tinyvga.com/vga-timing
 
 ## ⏱ 3. 수평 타이밍 (Horizontal Timing)
 
-하나의 **라인(Line)**을 출력하는 전체 타이밍 구조는 다음과 같습니다:
+하나의 라인(Line)을 출력하는 전체 타이밍 구조는 다음과 같습니다:
 
 ←------------ One Line ------------→
 
