@@ -8,7 +8,7 @@
 
 ![250909_VGA_img](/images/250909_VGA_img.png)
 
-![250909_hulk_red](/images/250909_hulk_red.png)
+![250909_hulk_red](/images/250909_hulk_red.jpg)
 
 ### VGA 사진 in ROM Switch 제어
 
@@ -16,4 +16,4 @@
 
 ### VGA 사진 in ROM gray 필터
 
-![250909_hulk_gray](/images/250909_hulk_gray.png)
+![250909_hulk_gray](/images/250909_hulk_gray.jpg)
