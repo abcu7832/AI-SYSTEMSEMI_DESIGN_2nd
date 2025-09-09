@@ -14,6 +14,31 @@
 
 ![250909_VGA_img_ROM](/images/250909_VGA_img_ROM.png)
 
+<details>
+  <summary>🧩 SystemVerilog: switch Control Filter (클릭해 펼치기)</summary>
+
+```verilog
+`timescale 1ns / 1ps
+
+module RGB_ControlFilter (
+    input  logic       sw_R,
+    input  logic       sw_G,
+    input  logic       sw_B,
+    input  logic [3:0] r_port_in,
+    input  logic [3:0] g_port_in,
+    input  logic [3:0] b_port_in,
+    output logic [3:0] r_port,
+    output logic [3:0] g_port,
+    output logic [3:0] b_port
+);
+    assign r_port = sw_R ? r_port_in : 4'b0;
+    assign g_port = sw_G ? g_port_in : 4'b0;
+    assign b_port = sw_B ? b_port_in : 4'b0;
+endmodule
+
+```
+</details>
+
 ### VGA 사진 in ROM gray 필터
 
 ![250909_hulk_gray](/images/250909_hulk_gray.jpg)
