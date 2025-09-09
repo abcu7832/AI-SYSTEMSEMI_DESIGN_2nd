@@ -8,6 +8,8 @@
 
 ![250909_VGA_img](/images/250909_VGA_img.png)
 
+-> ROM을 clk에 동기화 시켜 lut가 차지하는 용량을 감소시키고 bram으로 바뀜
+
 ![250909_hulk_red](/images/250909_hulk_red.jpg)
 
 ### VGA 사진 in ROM Switch 제어
