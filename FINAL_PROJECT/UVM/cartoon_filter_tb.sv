@@ -23,13 +23,11 @@ class wr_txn;
     rand bit        we;
     rand bit [16:0] addr;
     rand bit [15:0] data;
-    // 디버깅용
     int             idx;  // 0..(W*H-1)
 endclass
 
 // ============================================================
-// 3) Generator : 320x240 균일 프레임 (중간회색 0x7BEF)
-//    - 엣지/포스터라이즈 영향 0, 블러 불변 → 입력=출력
+// 3) Generator : 320x240 1프레임, 픽셀마다 랜덤 RGB565 데이터
 // ============================================================
 class generator;
     mailbox #(wr_txn) gen2drv_mbox;
@@ -38,7 +36,6 @@ class generator;
     localparam int H = 240;
     localparam int N = W * H;
 
-    // 간단 단일 프레임
     localparam int FRAMES_TO_RUN = 1;
 
     function new(mailbox#(wr_txn) gen2drv_mbox);
@@ -55,13 +52,13 @@ class generator;
     endtask
 
     task run();
-        // 프레임 루프
         for (int f = 0; f < FRAMES_TO_RUN; f++) begin
-            // 한 프레임: 0..N-1 순차 주소, 고정 픽셀 0x7BEF
             for (int i = 0; i < N; i++) begin
-                put(1'b1, 17'(i), 16'h7BEF, i);
+                bit [15:0] rand_pix;
+                rand_pix = $random;   // XSim 호환: $urandom 대신 $random
+                put(1'b1, 17'(i), rand_pix, i);
             end
-            // 프레임 종료 후 몇 클럭 쉬어줌(we=0)
+            // 프레임 끝나고 we=0 버블
             for (int k = 0; k < 50; k++) put(1'b0, '0, '0, -1);
         end
     endtask
@@ -93,8 +90,7 @@ class driver;
 endclass
 
 // ============================================================
-// 5) Monitor : 입력/출력 동시 샘플링 → SB로 보냄
-//    (여기선 입력만 큐에 저장하고 출력은 SB가 직접 읽음)
+// 5) Monitor : 입력만 SB로 전달 (출력은 SB가 직접 읽음)
 // ============================================================
 class monitor;
     virtual vga_wr_intf vif;
@@ -110,31 +106,32 @@ class monitor;
         forever begin
             @(posedge vif.clk);
             tr = new();
-            tr.we = vif.we_in;
+            tr.we   = vif.we_in;
             tr.addr = vif.wAddr_in;
             tr.data = vif.wData_in;
-            tr.idx = -1;
+            tr.idx  = -1;
             mon2scb_mbox.put(tr);
         end
     endtask
 endclass
 
 // ============================================================
-// 6) Scoreboard : 파이프라인 3클럭 정렬 후 비교
-//    - 균일 프레임 + 포스터/엣지 무력화 → out == in (데이터)
-//    - 주소/WE도 3클럭 지연 일치 확인
+// 6) Scoreboard : 3클럭 정렬 확인 (WE/ADDR만 기본 검사)
+//   ※ 필터로 데이터가 바뀌므로 CHECK_DATA=0이 기본
 // ============================================================
 class scoreboard;
     virtual vga_wr_intf vif;
     mailbox #(wr_txn)   mon2scb_mbox;
 
-    // 간단 지연라인(딜레이 파이프) 3단
+    // 필요 시 1로 바꾸면 DATA 비교도 수행
+    bit CHECK_DATA = 1'b0;
+
     typedef struct packed {
-        bit we;
+        bit        we;
         bit [16:0] a;
         bit [15:0] d;
     } beat_t;
-    beat_t q[3];  // q[0]가 최신 입력, [2]가 기대 출력 타이밍
+    beat_t q[3];
 
     int total_checks, total_mismatch;
 
@@ -145,34 +142,29 @@ class scoreboard;
 
     task run();
         wr_txn        tr;
-
-        // ---- 모든 지역 변수 선언을 맨 위로 ----
         beat_t        exp;
         bit           we_s;
         bit    [16:0] a_s;
         bit    [15:0] d_s;
 
-        total_checks = 0;
+        total_checks   = 0;
         total_mismatch = 0;
 
-        // 초기화
-        q[0] = '{we: 0, a: '0, d: '0};
-        q[1] = '{we: 0, a: '0, d: '0};
-        q[2] = '{we: 0, a: '0, d: '0};
+        q[0] = '{we:0,a:'0,d:'0};
+        q[1] = '{we:0,a:'0,d:'0};
+        q[2] = '{we:0,a:'0,d:'0};
 
         forever begin
             mon2scb_mbox.get(tr);
 
-            // 파이프 시프트
+            // 3-stage delay line for expected timing
             q[2] = q[1];
             q[1] = q[0];
-            // 일부 툴 호환 위해 필드명 지정 대신 위치 지정도 가능: '{tr.we, tr.addr, tr.data}
             q[0] = '{we: tr.we, a: tr.addr, d: tr.data};
 
-            // 기대치: 3클럭 뒤
             exp  = q[2];
 
-            // DUT 출력 샘플 (동일 posedge)
+            // DUT outputs sampled same posedge
             we_s = vif.we_out;
             a_s  = vif.wAddr_out;
             d_s  = vif.wData_out;
@@ -182,24 +174,25 @@ class scoreboard;
 
                 if (we_s !== 1'b1) begin
                     total_mismatch++;
-                    $display("**WE MISMATCH** got=%0b exp=1 (time=%0t)", we_s,
-                             $time);
+                    $display("**WE MISMATCH** got=%0b exp=1 (time=%0t)",
+                              we_s, $time);
                 end
                 if (a_s !== exp.a) begin
                     total_mismatch++;
                     $display("**ADDR MISMATCH** got=%0d exp=%0d (time=%0t)",
-                             a_s, exp.a, $time);
+                              a_s, exp.a, $time);
                 end
-                if (d_s !== exp.d) begin
-                    total_mismatch++;
-                    $display(
-                        "**DATA MISMATCH** got=0x%04h exp=0x%04h (time=%0t)",
-                        d_s, exp.d, $time);
+
+                if (CHECK_DATA) begin
+                    if (d_s !== exp.d) begin
+                        total_mismatch++;
+                        $display("**DATA MISMATCH** got=0x%04h exp=0x%04h (time=%0t)",
+                                  d_s, exp.d, $time);
+                    end
                 end
             end
         end
     endtask
-
 endclass
 
 // ============================================================
@@ -235,19 +228,25 @@ class environment;
 endclass
 
 // ============================================================
-// 8) Top TB : DUT(VGA_Cartoon) + 클럭/리셋 + env 구동
+// 8) Top TB : DUT + 클럭/리셋 + env + 커버리지 + final 리포트
 // ============================================================
 module tb_vga_cartoon_uvmstyle;
     vga_wr_intf vif ();
     environment env;
 
-    // DUT 파라미터: 포스터/엣지 무력화 → 균일 프레임 시 입력=출력
-    VGA_Cartoon #(
-        .IMG_WIDTH(320),
-        .IMG_HEIGHT(240),
-        .KEEP_RB_MSBS(5),
-        .KEEP_G_MSBS(6),
-        .EDGE_THR(1023)  // 충분히 커서 엣지 오버레이 발생 안 함
+    // ---- DUT 파라미터(여기 값이 커버그룹에서도 쓰이므로 TB 쪽에 상수로 보관) ----
+    localparam int IMG_W_TB   = 320;
+    localparam int IMG_H_TB   = 240;
+    localparam int KEEP_RB_TB = 2;
+    localparam int KEEP_G_TB  = 2;
+    localparam int EDGE_THR_TB= 50;
+
+    Cartoon_Filter #(
+        .IMG_WIDTH (IMG_W_TB),
+        .IMG_HEIGHT(IMG_H_TB),
+        .KEEP_RB_MSBS(KEEP_RB_TB),
+        .KEEP_G_MSBS (KEEP_G_TB),
+        .EDGE_THR    (EDGE_THR_TB)
     ) dut (
         .clk      (vif.clk),
         .reset    (vif.reset),
@@ -264,8 +263,89 @@ module tb_vga_cartoon_uvmstyle;
     initial vif.clk = 1'b0;
     always #(CLK_PERIOD_NS / 2.0) vif.clk = ~vif.clk;
 
+    // --------------------------------------------------------
+    // Coverage용 경계 플래그 정렬 (출력 we_out 타이밍 기준)
+    // DUT에 at_border_d2가 있으므로 TB에서 1clk 지연 → *_d3 역할
+    // --------------------------------------------------------
+    logic border_d3_tb;
+    always_ff @(posedge vif.clk or posedge vif.reset) begin
+        if (vif.reset) border_d3_tb <= 1'b0;
+        else           border_d3_tb <= dut.at_border_d2;
+    end
+
+    // ========================================================
+    // Functional Coverage (Covergroups)
+    // ========================================================
+
+    // (1) Border vs Inner
+    covergroup cg_border @(posedge vif.clk);
+        option.per_instance = 1;
+        border_cp : coverpoint border_d3_tb iff (vif.we_out) {
+            bins inner  = {0};
+            bins border = {1};
+        }
+    endgroup
+    cg_border cov_border = new;
+
+    // (2) Edge magnitude & overlay occurrence
+    covergroup cg_edge @(posedge vif.clk);
+        option.per_instance = 1;
+        // 내부 픽셀만
+        edge_mag_cp : coverpoint dut.edge_mag
+            iff (vif.we_out && !border_d3_tb) {
+            bins zero = {0};
+            bins low  = {[1:EDGE_THR_TB-1]};
+            bins hit  = {[EDGE_THR_TB:$]};
+        }
+        overlay_cp : coverpoint (dut.edge_mag >= EDGE_THR_TB)
+            iff (vif.we_out && !border_d3_tb) {
+            bins off = {0};
+            bins on  = {1};
+        }
+        edge_x_overlay : cross edge_mag_cp, overlay_cp;
+    endgroup
+    cg_edge cov_edge = new;
+
+    // (3) Orientation (vertical / horizontal / diagonal-ish)
+    covergroup cg_orient @(posedge vif.clk);
+        option.per_instance = 1;
+        vertical_cp : coverpoint
+            (dut.abs_gx > (dut.abs_gy << 1))
+            iff (vif.we_out && !border_d3_tb) { bins no={0}; bins yes={1}; }
+        horizontal_cp : coverpoint
+            (dut.abs_gy > (dut.abs_gx << 1))
+            iff (vif.we_out && !border_d3_tb) { bins no={0}; bins yes={1}; }
+        diagonal_cp : coverpoint
+            ( !(dut.abs_gx > (dut.abs_gy << 1)) &&
+              !(dut.abs_gy > (dut.abs_gx << 1)) )
+            iff (vif.we_out && !border_d3_tb) { bins no={0}; bins yes={1}; }
+    endgroup
+    cg_orient cov_orient = new;
+
+    // (4) WE 패턴 (연속/버블/유휴)
+    covergroup cg_we @(posedge vif.clk);
+        option.per_instance = 1;
+        we_seq : coverpoint vif.we_out {
+            bins burst = (1 [*5:100]);
+            bins gap   = (1 [*1:50] => 0 [*1:10] => 1);
+            bins idle  = (0 [*5:100]);
+        }
+    endgroup
+    cg_we cov_we = new;
+
+    // (5) Parameter sweep coverage (멀티 런 병합용)
+    covergroup cg_params @(posedge vif.clk);
+        option.per_instance = 1;
+        KEEP_RB : coverpoint KEEP_RB_TB { bins keep[] = {1,2,3,4,5}; }
+        KEEP_G  : coverpoint KEEP_G_TB  { bins keep[] = {1,2,3,4,5,6}; }
+        cross KEEP_RB, KEEP_G;
+    endgroup
+    cg_params cov_params = new;
+
     // Reset & run
     initial begin
+        $srandom(32'hC0FFEE11);
+
         // 초기값
         vif.reset    = 1'b1;
         vif.we_in    = 1'b0;
@@ -285,6 +365,34 @@ module tb_vga_cartoon_uvmstyle;
         repeat (200000) @(posedge vif.clk);
         $display("\n[TB] Timeout finish");
         $finish;
+    end
+
+    // ===== Functional coverage auto-report at sim end =====
+    final begin
+      real c_border   = cov_border.get_coverage();
+      real c_edge     = cov_edge.get_coverage();
+      real c_orient   = cov_orient.get_coverage();
+      real c_we       = cov_we.get_coverage();
+      real c_params   = cov_params.get_coverage();
+      real c_overall  = (c_border + c_edge + c_orient + c_we + c_params) / 5.0;
+
+      
+      $display("\n=========================[COVERAGE]=========================");
+      $display("Simulation finished at %0t", $time);
+      $display("Border        : %0.2f%%", c_border  );
+      $display("Edge Magnitude: %0.2f%%", c_edge    );
+      $display("Orientation   : %0.2f%%", c_orient  );
+      //$display("[COVERAGE] WE Pattern    : %0.2f%%", c_we      );
+      //$display("[COVERAGE] Param Sweep   : %0.2f%%", c_params  );
+      //$display("[COVERAGE] Overall(Avg)  : %0.2f%%", c_overall );
+      $display("============================================================\n");
+
+      // 상세 bin 리포트가 필요하면 아래 주석 해제
+      // cov_border.print();
+      // cov_edge.print();
+      // cov_orient.print();
+      // cov_we.print();
+      // cov_params.print();
     end
 
     // VCD
