@@ -9,7 +9,7 @@
 
 ```bash
 .
-├── UVM/                  # UVM 기반 시뮬레이션 및 검증 환경
+├── testbench/                  # SystemVerilog 기반 시뮬레이션 및 검증 환경
 ├── constrs_1/            # 타이밍 제약 파일 (XDC 등)
 ├── source/               # RTL 설계 파일 (SystemVerilog 등)
 ├── Final_최종 발표 버전.pdf  # 최종 프로젝트 발표자료
