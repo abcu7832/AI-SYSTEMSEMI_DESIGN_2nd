@@ -14,6 +14,7 @@
 ├── source/               # RTL 설계 파일 (SystemVerilog 등)
 ├── Final_최종 발표 버전.pdf  # 최종 프로젝트 발표자료
 └── README.md
+```
 
 📌 프로젝트 개요
 
