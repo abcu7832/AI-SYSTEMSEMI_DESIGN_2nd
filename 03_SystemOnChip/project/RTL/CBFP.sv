@@ -110,12 +110,18 @@ module CBFP02 #(
     logic [1:0] group_idx;
     always_ff @(posedge clk or negedge rstn) begin
         if (!rstn) begin
-            count <= 0;
-            for (int k = 0; k < 4; k++) group_min[k] <= 5'd31;  // max value
+            for (int k = 0; k < 4; k++) begin
+                group_min[k] <= 5'd31;  // max value
+            end
         end else if ((count >= 1) && (en || valid_b7)) begin
             group_min[group_idx] <= (temp1_re < temp1_im) ? temp1_re : temp1_im;
         end
-        if (en || valid_b7) begin
+    end
+
+    always_ff @(posedge clk or negedge rstn) begin
+        if(!rstn) begin
+            count <= 0;
+        end else if (en || valid_b7) begin
             count <= count + 1;
         end
     end
@@ -143,9 +149,12 @@ module CBFP02 #(
         end else if ((group_idx == 0) && (en || valid_b7) && (count >= 2)) begin
             final_min_reg_bf <= final_min;
         end
-        final_min_reg <= final_min_reg_bf;
     end
 
+    always_ff @(posedge clk) begin
+        final_min_reg <= final_min_reg_bf;
+    end
+    
     assign cnt = final_min_reg;
 
     // ------------------------
